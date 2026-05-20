@@ -1,0 +1,52 @@
+(9c1c5f) Let $f \colon \mathbb{Z}_{\geq 1} \to \mathbb{Z}_{\geq 1}$ be a function such that for all positive integers $m$ and $n$, 
+\begin{equation*}
+    f(m) + f(n) = f(m + n + mn).
+\end{equation*}
+Across all functions $f$ such that $f(n) \leq 1000$ for all $n \leq 1000$, how many different values can $f(2024)$ take?
+
+Budget: 996.00 seconds | Deadline: 1771343543.73
+
+
+Attempt 8 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_746/1775303888.py in <cell line: 0>()
+     10 primes = list(sp.primerange(2,1002))
+     11 max_exponents = {p: max_exponent(p,1001) for p in primes}
+---> 12 max_exponents[:10]
+KeyError: slice(None, 10, None)
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 5 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_807/850512527.py in <cell line: 0>()
+     48 tested=0
+     49 for w3,w5 in feasible[:20]:
+---> 50     assert check_feasible(w3,w5)
+     51     tested+=1
+     52 tested
+/tmp/ipykernel_807/850512527.py in check_feasible(w3, w5)
+     41     for m in range(1,max_n+1):
+     42         for n in range(1,max_n+1):
+---> 43             if f[m] + f[n] != f[m+n+m*n]:
+     44                 return False
+     45     return True
+IndexError: list index out of range
+
+Attempt 3 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds

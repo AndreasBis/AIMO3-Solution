@@ -1,0 +1,324 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771342817.79
+
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_809/4112390074.py in <cell line: 0>()
+     34 
+     35 res = compute_f_upto(200)
+---> 36 res[:10]
+KeyError: slice(None, 10, None)
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_808/830908296.py in <cell line: 0>()
+     19 
+     20 fvals = compute_f_list(100)
+---> 21 fvals[:10]
+KeyError: slice(None, 10, None)
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_745/1909808969.py in <cell line: 0>()
+     26 for n in range(6,101):
+     27     vals[n] = f_brutal_n(n)
+---> 28 vals[:10]
+KeyError: slice(None, 10, None)
+
+Attempt 6 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_769/88047780.py in <cell line: 0>()
+     23 
+     24 f_vals = compute_f_small(100)
+---> 25 f_vals[:10]
+KeyError: slice(None, 10, None)
+
+Attempt 1 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_735/606884109.py in <cell line: 0>()
+     15     return ratios
+     16 
+---> 17 ratios = sample_ratios(200)
+     18 ratios_list = [(n, ratios[n]) for n in sorted(ratios)]
+     19 ratios_list[:20]
+/tmp/ipykernel_735/606884109.py in sample_ratios(limit)
+     10     for n in range(6, limit+1):
+     11         if n%3!=0:
+---> 12             fval = f_brutal_small_n(n)
+     13             if fval:
+     14                 ratios[n] = fval / n
+/tmp/ipykernel_735/606884109.py in f_brutal_small_n(n)
+      1 def f_brutal_small_n(n):
+----> 2     return f_brutal_n_limit(n, limit=5000)
+      3 
+      4 def ratio(n):
+      5     fval = f_brutal_small_n(n)
+TypeError: f_brutal_n_limit() got an unexpected keyword argument 'limit'
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 3 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_792/3364304369.py in <cell line: 0>()
+     33 
+     34 vals = compute_f_vals(100)
+---> 35 vals[:10]
+KeyError: slice(None, 10, None)
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_809/2328825092.py in <cell line: 0>()
+      5 # Might be huge; compute maybe not? but let's try, may be huge (over 6000 digits) but okay.
+      6 
+----> 7 len(str(K))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+Attempt 6 produced Python Error:
+
+c= 0 s= 9 ratio= 2/3
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_769/2016980712.py in <cell line: 0>()
+      1 for c in c_values:
+----> 2     s_r = g_for_c_debug(c)
+      3     print("c=",c, "s=", s_r[0], "ratio=", s_r[1])
+/tmp/ipykernel_769/3838179084.py in g_for_c_debug(c)
+      1 def g_for_c_debug(c):
+      2     for s, r in ratios_sorted:
+----> 3         if (M_mod[s] + c % s) % s == 0:
+      4             return (s, r)
+      5     return None
+TypeError: not all arguments converted during string formatting
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_809/1130077117.py in <cell line: 0>()
+      1 cand_better = []
+      2 for ratio, P, m, triple in cand_small:
+----> 3     if ratio < threshold:
+      4         cand_better.append((ratio,m,P,triple))
+      5 len(cand_better)
+NameError: name 'threshold' is not defined
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_745/3409107049.py in <cell line: 0>()
+     21 pairs.sort(key=lambda x: x[0])
+     22 # define list of c values
+---> 23 c_vals = [0, 4*None, 1848374, 10162574, 265710644, 44636594]
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_735/3333245249.py in <cell line: 0>()
+     11 # compute for mod 25
+     12 mod = 25
+---> 13 val = (pow(3, A, mod) + c) % mod
+     14 val
+NameError: name 'A' is not defined
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_808/4078772599.py in <cell line: 0>()
+     21 # test for some s
+     22 for s in [7,9,15,21]:
+---> 23     print(s, M_mod_s(s))
+/tmp/ipykernel_808/4078772599.py in M_mod_s(s)
+     16         mod2 = t
+     17         # use sympy crt
+---> 18         x, lcm_mod = sp.crt([mod1, mod2], [0, 1])
+     19         return int(x % s)
+     20 
+AttributeError: module 'sympy' has no attribute 'crt'
+
+Attempt 1 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 3 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_792/1018310439.py in <cell line: 0>()
+     14     return (5 * M_mod_cache[p] - 2) % p
+     15 
+---> 16 p1_minus1 = smallest_odd_prime_divisor_of_expr(N1_minus1_mod, limit=200000)
+     17 p1_minus2 = smallest_odd_prime_divisor_of_expr(N1_minus2_mod, limit=200000)
+     18 p1_minus1, p1_minus2
+/tmp/ipykernel_792/1018310439.py in smallest_odd_prime_divisor_of_expr(expr_mod_func, limit)
+      2     # expr_mod_func(p) returns value mod p
+      3     for p in primerange(3, limit+1):
+----> 4         if expr_mod_func(p) == 0:
+      5             return p
+      6     return None
+/tmp/ipykernel_792/1018310439.py in N1_minus1_mod(p)
+      9 def N1_minus1_mod(p):
+     10     # compute (5M - 1) mod p
+---> 11     return (5 * M_mod_cache[p] - 1) % p
+     12 
+     13 def N1_minus2_mod(p):
+KeyError: 2003
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_735/2646282786.py in <cell line: 0>()
+     14 
+     15 for c in [0, 1848374, 10162574, 265710644, 44636594]:
+---> 16     r, s = compute_g_small_c(c)
+     17     print(c, s, r)
+/tmp/ipykernel_735/2646282786.py in compute_g_small_c(c)
+      4     best_s = None
+      5     for s in range(6, MAX_S+1):
+----> 6         if ratio[s] is None:
+      7             continue
+      8         if (pow(3, A, s) + c) % s == 0:
+TypeError: 'function' object is not subscriptable
+
+Attempt 3 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_735/1556139160.py in <cell line: 0>()
+     12     return best_ratio, best_s
+     13 
+---> 14 best_ratio_5M, best_s_5M = compute_g_factor_M_multiple(5)
+     15 best_ratio_5M, best_s_5M
+/tmp/ipykernel_735/1556139160.py in compute_g_factor_M_multiple(k)
+      3     best_s = None
+      4     for s in range(6, 201):
+----> 5         if ratios[s] is None:
+      6             continue
+      7         if (k * pow(3, A, s)) % s == 0:
+KeyError: 6
+
+Attempt 5 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 3 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/usr/local/lib/python3.12/dist-packages/IPython/core/formatters.py in __call__(self, obj)
+    700                 type_pprinters=self.type_printers,
+    701                 deferred_pprinters=self.deferred_printers)
+--> 702             printer.pretty(obj)
+    703             printer.flush()
+    704             return stream.getvalue()
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    375                 if cls in self.type_pprinters:
+    376                     # printer registered in self.type_pprinters
+--> 377                     return self.type_pprinters[cls](obj, self, cycle)
+    378                 else:
+    379                     # deferred printer
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in inner(obj, p, cycle)
+    553                 p.text(',')
+    554                 p.breakable()
+--> 555             p.pretty(x)
+    556         if len(obj) == 1 and type(obj) is tuple:
+    557             # Special case for 1-item tuples.
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    375                 if cls in self.type_pprinters:
+    376                     # printer registered in self.type_pprinters
+--> 377                     return self.type_pprinters[cls](obj, self, cycle)
+    378                 else:
+    379                     # deferred printer
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in _repr_pprint(obj, p, cycle)
+    698     """A pprint that just redirects to the normal repr function."""
+    699     # Find newlines and replace them with p.break_()
+--> 700     output = repr(obj)
+    701     lines = output.splitlines()
+    702     with p.group():
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_735/156920516.py in <cell line: 0>()
+     58 
+     59 for c in [1848374, 10162574, 265710644, 44636594]:
+---> 60     r, d = min_ratio_for_c(c)
+     61     print(c, d, r)
+/tmp/ipykernel_735/156920516.py in min_ratio_for_c(c)
+     29         # However we only care about small divisors; all d here are <= c+1 but could be up to c+1, but we can limit to maybe d <= 5000 for safe.
+     30         if d <= MAX_S:
+---> 31             f_d = f_small[d]
+     32         else:
+     33             # compute f(d) recursively using same method (but d might be large composite with small divisors)
+KeyError: 775
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_735/832564966.py in <cell line: 0>()
+     31 
+     32 for c in [1848374, 10162574, 265710644, 44636594]:
+---> 33     r, d = compute_min_ratio(c)
+     34     print("c", c, "best d", d, "ratio", r)
+/tmp/ipykernel_735/832564966.py in compute_min_ratio(c)
+     24     for d in candidates:
+     25         f_d = f_brutal_for_n(d)
+---> 26         r = Fraction(f_d, d)
+     27         if best_ratio is None or r < best_ratio:
+     28             best_ratio = r
+/usr/lib/python3.12/fractions.py in __new__(cls, numerator, denominator)
+    275                 )
+    276         else:
+--> 277             raise TypeError("both arguments should be "
+    278                             "Rational instances")
+    279 
+TypeError: both arguments should be Rational instances
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_745/509219988.py in <cell line: 0>()
+     10 
+     11 # compute all
+---> 12 c_list = [0, 4*None, 1848374, 10162574, 265710644, 44636594]  # placeholder
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'

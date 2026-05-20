@@ -1,0 +1,68 @@
+(a295e9) A $500 \times 500$ square is divided into $k$ rectangles, each having integer side lengths. Given that no two of these rectangles have the same perimeter, the largest possible value of $k$ is $\mathcal{K}$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771343671.57
+
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_808/2954988138.py in <cell line: 0>()
+     32     return None
+     33 
+---> 34 w,h = find_grid(20,25,500,270,attempts=5000)
+     35 print(w,h)
+TypeError: cannot unpack non-iterable NoneType object
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_808/2836871225.py in <cell line: 0>()
+     37     return best,best_info
+     38 
+---> 39 best,best_info = max_product(max_c=30, max_r=30)
+     40 print(best, best_info)
+/tmp/ipykernel_808/2836871225.py in max_product(limit_w, limit_h, max_c, max_r)
+     31             if r*(r+1)//2 > limit_h:
+     32                 continue
+---> 33             feas = is_feasible_grid(c,r,limit_w,limit_h,attempts=5000)
+     34             if feas:
+     35                 best=prod
+/tmp/ipykernel_808/2836871225.py in is_feasible_grid(c, r, total_w, total_h, attempts)
+      1 def is_feasible_grid(c, r, total_w=500, total_h=500, attempts=2000):
+      2     for _ in range(attempts):
+----> 3         w = random_partition(total_w, c)
+      4         h = random_partition(total_h, r)
+      5         sums=set()
+/tmp/ipykernel_808/2384024875.py in random_partition(total, parts)
+      2     # generate random composition of total into 'parts' positive integers
+      3     cuts = sorted(random.sample(range(1,total), parts-1))
+----> 4     pieces = [cuts[0]]
+      5     for i in range(1,len(cuts)):
+      6         pieces.append(cuts[i]-cuts[i-1])
+IndexError: list index out of range
+
+Attempt 4 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds

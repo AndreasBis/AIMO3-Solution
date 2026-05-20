@@ -1,0 +1,76 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771342497.93
+
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 6 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_777/1719422092.py in <cell line: 0>()
+     44 
+     45 # test for sample values
+---> 46 print(diff_coeffs(13,14,5))
+/tmp/ipykernel_777/1719422092.py in diff_coeffs(a, b, c)
+     39     diff = sp.expand(diff)
+     40     # Get coefficient of sqrt term: yC
+---> 41     coeff_y = sp.simplify(sp.diff(diff, yC))  # Since diff linear in yC
+     42     const = sp.simplify(diff - coeff_y*yC)
+     43     return sp.simplify(const), sp.simplify(coeff_y)
+/usr/local/lib/python3.12/dist-packages/sympy/core/function.py in diff(f, *symbols, **kwargs)
+   2479     """
+   2480     if hasattr(f, 'diff'):
+-> 2481         return f.diff(*symbols, **kwargs)
+   2482     kwargs.setdefault('evaluate', True)
+   2483     return _derivative_dispatch(f, *symbols, **kwargs)
+/usr/local/lib/python3.12/dist-packages/sympy/core/expr.py in diff(self, *symbols, **assumptions)
+   3573  
+... [Truncated 27 characters] ...
+ **assumptions):
+   3574         assumptions.setdefault("evaluate", True)
+-> 3575         return _derivative_dispatch(self, *symbols, **assumptions)
+   3576 
+   3577     ###########################################################################
+/usr/local/lib/python3.12/dist-packages/sympy/core/function.py in _derivative_dispatch(expr, *variables, **kwargs)
+   1906         from sympy.tensor.array.array_derivatives import ArrayDerivative
+   1907         return ArrayDerivative(expr, *variables, **kwargs)
+-> 1908     return Derivative(expr, *variables, **kwargs)
+   1909 
+   1910 
+/usr/local/lib/python3.12/dist-packages/sympy/core/function.py in __new__(cls, expr, *variables, **kwargs)
+   1332             if not v._diff_wrt:
+   1333                 __ = ''  # filler to make error message neater
+-> 1334                 raise ValueError(filldedent('''
+   1335                     Can't calculate derivative wrt %s.%s''' % (v,
+   1336                     __)))
+ValueError: 
+Can't calculate derivative wrt 8*sqrt(66)/5.
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_765/1356680093.py in <cell line: 0>()
+----> 1 sp.nsimplify(res["D"])
+/usr/local/lib/python3.12/dist-packages/sympy/simplify/simplify.py in nsimplify(expr, constants, tolerance, full, rational, rational_conversion)
+   1467 
+   1468     exprval = expr.evalf(prec, chop=True)
+-> 1469     re, im = exprval.as_real_imag()
+   1470 
+   1471     # safety check to make sure that this evaluated to a number
+AttributeError: 'Point2D' object has no attribute 'as_real_imag'
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 6 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_777/1587662229.py in <cell line: 0>()
+----> 1 inter = circ_BXD.intersection(circ_CED)
+      2 print(inter)
+NameError: name 'circ_BXD' is not defined
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds

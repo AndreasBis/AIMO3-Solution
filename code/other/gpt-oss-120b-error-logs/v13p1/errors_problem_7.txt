@@ -1,0 +1,609 @@
+(641659) Let $ABC$ be a triangle with $AB \neq AC$, circumcircle $\Omega$, and incircle $\omega$. Let the contact points of $\omega$ with $BC$, $CA$, and $AB$ be $D$, $E$, and $F$, respectively. Let the circumcircle of $AFE$ meet $\Omega$ at $K$ and let the reflection of $K$ in $EF$ be $K'$. Let $N$ denote the foot of the perpendicular from $D$ to $EF$. The circle tangent to line $BN$ and passing through $B$ and $K$ intersects $BC$ again at $T \neq B$. 
+    
+Let sequence $(F_n)_{n \geq 0}$ be defined by $F_0 = 0$, $F_1 = 1$ and for $n \geq 2$, $F_n = F_{n-1} + F_{n-2}$. Call $ABC$ $n$\emph{-tastic} if $BD = F_n$, $CD = F_{n+1}$, and $KNK'B$ is cyclic. Across all $n$-tastic triangles, let $a_n$ denote the maximum possible value of $\frac{CT \cdot NB}{BT \cdot NE}$. Let $\alpha$ denote the smallest real number such that for all sufficiently large $n$, $a_{2n} < \alpha$. Given that $\alpha = p + \sqrt{q}$ for rationals $p$ and $q$, what is the remainder when $\left\lfloor p^{q^p} \right\rfloor$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771344005.29
+
+
+Attempt 5 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_746/2112173430.py in <cell line: 0>()
+     30         cyclic = is_cyclic((Kx,Ky), N_pt, K_prime, B)
+     31         print('r',r,'cyclic',cyclic)
+---> 32 test_random()
+/tmp/ipykernel_746/2112173430.py in test_random()
+     28         # Check cyclic condition for K,N,K',B
+     29         B = tri['B']
+---> 30         cyclic = is_cyclic((Kx,Ky), N_pt, K_prime, B)
+     31         print('r',r,'cyclic',cyclic)
+     32 test_random()
+/tmp/ipykernel_746/2112173430.py in is_cyclic(P, Q, R, S, tol)
+      2     # Return True if P,Q,R,S are concyclic (approx numeric)
+      3     # compute circle through P,Q,R
+----> 4     (center, rad) = circle_center(P, Q, R)
+      5     if center is None:
+      6         return False
+/tmp/ipykernel_746/2856184161.py in circle_center(P, Q, R)
+     31     if not sol:
+     32         return None
+---> 33     h_val = sp.simplify(sol[h])
+     34     k_val = sp.simplify(sol[k])
+     35     r2 = sp.simplify((x1-h_val)**2 + (y1-k_val)**2)
+TypeError: list indices must be integers or slices, not Symbol
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_807/535941144.py in <cell line: 0>()
+     51 
+     52 pts = compute_points(f_val, e_val)
+---> 53 simpl = check_cyclic(pts)
+     54 simpl
+/tmp/ipykernel_807/535941144.py in check_cyclic(p)
+     44     circ = sp.Circle(K, N, B)
+     45     # distance from Kprime to circumcenter should equal radius
+---> 46     return sp.simplify(circ.center.distance(Kprime) - circ.radius)
+     47 
+     48 # test random values
+NameError: name 'Kprime' is not defined
+
+Attempt 5 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_744/2300756754.py in <cell line: 0>()
+      1 import sympy as sp
+----> 2 sp.mp.dps = 50
+      3 
+      4 def cyclic_equation(n):
+      5     # returns sympy expression for cyclic condition det as function of s
+AttributeError: module 'sympy' has no attribute 'mp'
+
+Attempt 6 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_768/2522535386.py in <cell line: 0>()
+     72     a = F[n+2]
+     73     guess = a/2
+---> 74     sol = solve_c_for_n(n, guess)
+     75     print("n", n, "a", a, "sol c", sol)
+/tmp/ipykernel_768/2522535386.py in solve_c_for_n(n, guess)
+     59 def solve_c_for_n(n, guess):
+     60     c = sp.symbols('c', positive=True)
+---> 61     expr = cyclic_condition_value(c, n)
+     62     # Use nsolve (numeric)
+     63     try:
+/tmp/ipykernel_768/2522535386.py in cyclic_condition_value(c_val, n)
+     15     # Use symbolic? We'll use sympy sqrt
+     16     y_sq = c_val**2 - xA**2
+---> 17     if y_sq <= 0:
+     18         return None
+     19     yA = sp.sqrt(y_sq)
+/usr/local/lib/python3.12/dist-packages/sympy/core/relational.py in __bool__(self)
+    514 
+    515     def __bool__(self):
+--> 516         raise TypeError("cannot determine truth value of Relational")
+    517 
+    518     def _eval_as_set(self):
+TypeError: cannot determine truth value of Relational
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_807/892940526.py in <cell line: 0>()
+     25 
+     26 # test with numeric values
+---> 27 Kx, Ky = compute_K_via_AO(1.2, 2.5)
+     28 Kx, Ky
+/tmp/ipykernel_807/892940526.py in compute_K_via_AO(x, y)
+     13     sol = sp.solve([xA*sp.cos(f)+yA*sp.sin(f)-1,
+     14                     xA*sp.cos(e)+yA*sp.sin(e)-1], (xA, yA))
+---> 15     A = sp.Point(sol[0], sol[1])
+     16     # circumcircle of ABC
+     17     circ = sp.Circle(A, B, C)
+KeyError: 0
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_765/2574735136.py in <cell line: 0>()
+      6 # equations: K on circle ABC and on circle AFE
+      7 eq1 = (K.distance(circle_ABC.center))**2 - circle_ABC.radius**2
+----> 8 eq2 = (K.distance(circle_AFE.center))**2 - circle_AFE.radius**2
+      9 
+     10 # Also ensure K not equal A; later we can solve for K
+NameError: name 'circle_AFE' is not defined
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_777/169178475.py in <cell line: 0>()
+     14 for n in range(2,9):
+     15     data = compute_ratio(n)
+---> 16     diff = cyclic_check(data)
+     17     print(n, diff)
+/tmp/ipykernel_777/169178475.py in cyclic_check(data)
+      5     Kp = data['Kp']
+      6     # circumcenter of B,N,K:
+----> 7     O3 = circumcenter(B,N,K)
+      8     if O3 is None:
+      9         return None
+NameError: name 'circumcenter' is not defined
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_765/384808145.py in <cell line: 0>()
+----> 1 eq1_s
+NameError: name 'eq1_s' is not defined
+
+Attempt 3 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_789/3788733991.py in <cell line: 0>()
+     16 
+     17 for n in [5,6,7]:
+---> 18     root = find_root_bracket(n, 0.001, 20, steps=200)
+     19     print("n", n, "root", root)
+/tmp/ipykernel_789/3788733991.py in find_root_bracket(n, lo, hi, steps)
+     10         if f_lo * f_x < 0:
+     11             # root between lo and x
+---> 12             root = mp.findroot(lambda xx: ratio_and_cyclic(n, xx)[1], (lo, x))
+     13             return root
+     14         f_lo = f_x
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (2.96022381629443109461431164138854881125265569035474915029381749450031e-41 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 5 produced Python Error:
+
+n 2 max ratio 1595217698.6052353
+n 4 max ratio 576431977868.1377
+n 6 max ratio 3.0150356906539164
+n 8 max ratio 3.0125258763314915
+n 10 max ratio 674869958827.4749
+n 12 max ratio 49539591039606.65
+n 14 max ratio 2.973799117860067
+n 16 max ratio 2.9737637352619206
+n 18 max ratio 2.9737585733493686
+n 20 max ratio 2.9737578203562953
+n 22 max ratio 2.973757710541601
+n 24 max ratio 2.973757694537271
+n 26 max ratio 2.973757692208921
+n 28 max ratio 2.973757691871756
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_746/1295870327.py in <cell line: 0>()
+     12     return vals
+     13 
+---> 14 ratios_even = compute_ratios_even_up_to(30)
+/tmp/ipykernel_746/1295870327.py in compute_ratios_even_up_to(N)
+      7     vals=[]
+      8     for n in range(2,N+1,2):
+----> 9         mx,_ = compute_a_n_abs(n)
+     10         vals.append((n,mx))
+     11         print('n', n, 'max ratio', mx)
+/tmp/ipykernel_746/2817905215.py in compute_a_n_abs(n)
+     23     a = fib(n)
+     24     c = fib(n+2)
+---> 25     roots = find_r_solution(a,c)
+     26     ratios = []
+     27     for r in roots:
+/tmp/ipykernel_746/1381085013.py in find_r_solution(a, c)
+     22     Nsamples = 1000
+     23     xs = [lo + (hi-lo)*i/Nsamples for i in range(Nsamples+1)]
+---> 24     vals = [cyclic_error(x, a, c) for x in xs]
+     25     # find intervals where sign changes
+     26     intervals = []
+/tmp/ipykernel_746/1381085013.py in cyclic_error(r, a, c)
+      1 def cyclic_error(r, a, c):
+      2     # returns difference (distance of K' to circumcircle(K,B,N) - radius)
+----> 3     K, tri = compute_K_numeric(a,c,r)
+      4     D = tri['D']; E = tri['E']; F = tri['F']
+      5     N = foot_point(D, E, F)
+/tmp/ipykernel_746/4099467419.py in compute_K_numeric(a, c, r)
+     59     return [(xs1,ys1), (xs2,ys2)]
+     60 def compute_K_numeric(a,c,r):
+---> 61     tri = compute_triangle_numeric(a,c,r)
+     62     A = tri['A']; B = tri['B']; C = tri['C']; F = tri['F']; E = tri['E']
+     63     # circumcenter O of ABC
+/tmp/ipykernel_746/4099467419.py in compute_triangle_numeric(a, c, r)
+     10     # => mB*x = mC*x - mC*c => (mB - mC)*x = -mC*c => x = -mC*c/(mB - mC)
+     11     if abs(mB - mC) < 1e-12:
+---> 12         raise ValueError('Parallel lines')
+     13     xA = -mC*c/(mB - mC)
+     14     yA = mB*xA
+ValueError: Parallel lines
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_765/4047949814.py in <cell line: 0>()
+      3 
+      4 # reflection of K across line EF
+----> 5 Kprime = K.mirror(line_EF)  # sympy's method mirror?
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+Attempt 3 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_789/3744765753.py in <cell line: 0>()
+      4 
+      5 for n in [14,16,18,20]:
+----> 6     a = compute_a_n(n)
+      7     print(n, a, float(a))
+/tmp/ipykernel_789/3744765753.py in compute_a_n(n)
+      1 def compute_a_n(n):
+      2     root = find_root_positive(n)
+----> 3     return compute_ratio_abs(n, root)
+      4 
+      5 for n in [14,16,18,20]:
+/tmp/ipykernel_789/1995560076.py in compute_ratio_abs(n, x)
+      1 def compute_ratio_abs(n, x):
+----> 2     ratio, f, data = ratio_and_cyclic(n, x)
+      3     # compute absolute lengths as earlier
+      4     a = mp.mpf(fib(n) + fib(n+1))
+      5     BT_abs = abs(2*data['O_c'][0])
+/tmp/ipykernel_789/1934813687.py in ratio_and_cyclic(n, x)
+      6     Fn1 = fib(n+1)
+      7     a = Fn + Fn1
+----> 8     b = Fn1 + x
+      9     c = Fn + x
+     10     # Coordinates
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 3 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 5 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_746/62633045.py in <cell line: 0>()
+      3         err = cyclic_error_mp(r)
+      4         print(r, err)
+----> 5 sample_errors()
+/tmp/ipykernel_746/62633045.py in sample_errors()
+      1 def sample_errors():
+      2     for r in [0.01,0.05,0.1,0.2,0.3,0.35,0.38]:
+----> 3         err = cyclic_error_mp(r)
+      4         print(r, err)
+      5 sample_errors()
+/tmp/ipykernel_746/830707004.py in cyclic_error_mp(r)
+     87         t = ((P-Q).dot(v))/ (v.dot(v))
+     88         return Q + t*v
+---> 89     Npt = foot(Dpt, mp.matrix([xE,yE]), mp.matrix([xF,yF]))
+     90     # K' reflection across EF line
+     91     # reflect point across line defined by Q,R:
+/tmp/ipykernel_746/830707004.py in foot(P, Q, R)
+     85         # vector QR
+     86         v = R - Q
+---> 87         t = ((P-Q).dot(v))/ (v.dot(v))
+     88         return Q + t*v
+     89     Npt = foot(Dpt, mp.matrix([xE,yE]), mp.matrix([xF,yF]))
+AttributeError: 'matrix' object has no attribute 'dot'
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_744/3448743122.py in <cell line: 0>()
+      2     return sp.nsimplify(val, [ ], maxsteps=100, rational=False, max_denominator=max_den)
+      3 
+----> 4 print(rational_approx(root6, max_den=5000))
+/tmp/ipykernel_744/3448743122.py in rational_approx(val, max_den)
+      1 def rational_approx(val, max_den=1000):
+----> 2     return sp.nsimplify(val, [ ], maxsteps=100, rational=False, max_denominator=max_den)
+      3 
+      4 print(rational_approx(root6, max_den=5000))
+TypeError: nsimplify() got an unexpected keyword argument 'maxsteps'
+
+Attempt 4 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_744/373631286.py in <cell line: 0>()
+----> 1 sp.nsimplify(root6, max_denominator=10000)
+TypeError: nsimplify() got an unexpected keyword argument 'max_denominator'
+
+Attempt 6 produced Python Error:
+
+---------------------------------------------------------------------------Exception                                 Traceback (most recent call last)/tmp/ipykernel_768/1390730839.py in <cell line: 0>()
+     42 
+     43 for n in range(5,11):
+---> 44     root = find_root_bracketed(n)
+     45     print("n", n, "root", root)
+/tmp/ipykernel_768/1390730839.py in find_root_bracketed(n)
+     10     fL = f(L)
+     11     if fL is None:
+---> 12         raise Exception("fL None")
+     13     # find hi where sign changes
+     14     hi = L + a  # start with a
+Exception: fL None
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_744/26517301.py in <cell line: 0>()
+      8     return NB, NE, CT, BT, ratio
+      9 
+---> 10 NB2, NE2, CT2, BT2, ratio2 = compute_lengths_full(2, 4.2)
+     11 NB2, NE2, CT2, BT2, ratio2
+/tmp/ipykernel_744/26517301.py in compute_lengths_full(n, s)
+      4     NB = distance(N, B)
+      5     NE = distance(N, E)
+----> 6     CT = distance(data['C'], T)
+      7     BT = distance(B, T)
+      8     return NB, NE, CT, BT, ratio
+KeyError: 'C'
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_744/3493411612.py in <cell line: 0>()
+----> 1 NB2 = distance(data5['N'] if False else None, None)
+/tmp/ipykernel_744/471168441.py in distance(P, Q)
+     57 
+     58 def distance(P,Q):
+---> 59     return mp.sqrt((P[0]-Q[0])**2 + (P[1]-Q[1])**2)
+     60 
+     61 def compute_ratio_and_cyclic(n, s):
+TypeError: 'NoneType' object is not subscriptable
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 5 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_746/1696047775.py in <cell line: 0>()
+      1 import sympy as sp
+----> 2 alpha = sp.nsimplify(2.9909410449538036, maxsteps=100)
+      3 alpha
+TypeError: nsimplify() got an unexpected keyword argument 'maxsteps'
+
+Attempt 7 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_807/803975715.py in <cell line: 0>()
+     23 
+     24 # test for n=3 (x=2, y=3)
+---> 25 a3, root3, xy3, roots3 = compute_a_n(3)
+     26 a3, root3, xy3, roots3
+/tmp/ipykernel_807/803975715.py in compute_a_n(n)
+     16     best_root = None
+     17     for r in roots:
+---> 18         ratio = ratio_at_root(x, y, r)
+     19         if max_ratio is None or ratio > max_ratio:
+     20             max_ratio = ratio
+/tmp/ipykernel_807/2737892826.py in ratio_at_root(x, y, r)
+      1 def ratio_at_root(x,y,r):
+----> 2     cond, ratio, info = geometry_data(x,y,float(r))
+      3     return ratio
+      4 
+      5 ratios = [ratio_at_root(2,3,r) for r in roots]
+ValueError: not enough values to unpack (expected 3, got 2)
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_807/1243713082.py in <cell line: 0>()
+      6     return cond, ratio, info
+      7 
+----> 8 for r in roots3:
+      9     print("Root:", r)
+     10     geometry_debug(2,3, r)
+NameError: name 'roots3' is not defined
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------RecursionError                            Traceback (most recent call last)/tmp/ipykernel_807/452797324.py in <cell line: 0>()
+      4 
+      5 for n in range(2,9):
+----> 6     max_ratio, best_r, (x,y), roots = compute_a_n(n)
+      7     print(n, x, y, len(roots), max_ratio)
+/tmp/ipykernel_807/452797324.py in compute_a_n(n)
+      1 def compute_a_n(n):
+----> 2     max_ratio, best_r, (x, y), roots = compute_a_n(n)
+      3     return max_ratio, best_r, (x, y), roots
+      4 
+      5 for n in range(2,9):
+... last 1 frames repeated, from the frame below ...
+/tmp/ipykernel_807/452797324.py in compute_a_n(n)
+      1 def compute_a_n(n):
+----> 2     max_ratio, best_r, (x, y), roots = compute_a_n(n)
+      3     return max_ratio, best_r, (x, y), roots
+      4 
+      5 for n in range(2,9):
+RecursionError: maximum recursion depth exceeded
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_807/17911938.py in <cell line: 0>()
+     24 
+     25 for n in range(2,9):
+---> 26     max_ratio, best_root, xy, roots = a_n_value(n)
+     27     print(f"n={n}, x={xy[0]}, y={xy[1]}, roots={len(roots)}, max_ratio={max_ratio}")
+/tmp/ipykernel_807/17911938.py in a_n_value(n)
+     15     best_root = None
+     16     for r in roots:
+---> 17         ratio = ratio_at_root(x, y, r)
+     18         if ratio is None:
+     19             continue
+/tmp/ipykernel_807/2737892826.py in ratio_at_root(x, y, r)
+      1 def ratio_at_root(x,y,r):
+----> 2     cond, ratio, info = geometry_data(x,y,float(r))
+      3     return ratio
+      4 
+      5 ratios = [ratio_at_root(2,3,r) for r in roots]
+ValueError: not enough values to unpack (expected 3, got 2)
+
+Attempt 6 produced Python Error:
+
+0.01 BT -396075.114607202
+0.001 BT -3947273.588537099
+0.0001 BT -43783199.518074974
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_768/2270354136.py in <cell line: 0>()
+     37 for eps in [1e-2,1e-3,1e-4,1e-5]:
+     38     c = F[10] + eps
+---> 39     bt = compute_BT(10,c)
+     40     print(eps, "BT", bt)
+/tmp/ipykernel_768/2270354136.py in compute_BT(n, c)
+     20     O2 = circumcenter((xA,yA),(Fx,Fy),(Ex,Ey))
+     21     R1 = math.hypot(O1x, O1y)
+---> 22     R2 = math.hypot(O2[0]-xA, O2[1]-yA)
+     23     inters = circle_intersections((O1x,O1y),R1,O2,R2)
+     24     K = None
+TypeError: 'NoneType' object is not subscriptable
+
+Attempt 6 produced Python Error:
+
+4 7429.1312739919385
+6 5036.866821974737
+8 5388.472080801062
+10 4.235294117647053
+12 4.235955056179695
+14 7005.232143433848
+16 6560.627271357857
+18 5746.210573493606
+20 5723.101550525586
+22 4.2360679700347
+24 4.236067976410607
+26 4.236067977340816
+28 7705.733522427178
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_768/4155757352.py in <cell line: 0>()
+      5 for n in range(2,16):
+      6     even_n = 2*n
+----> 7     val = a_n(even_n)
+      8     even_values[even_n] = val
+      9     print(even_n, val)
+/tmp/ipykernel_768/4155757352.py in a_n(n)
+      1 def a_n(n):
+----> 2     return compute_a_n_positive(n)
+      3 
+      4 even_values = {}
+      5 for n in range(2,16):
+/tmp/ipykernel_768/2501904935.py in compute_a_n_positive(n)
+     56 
+     57 def compute_a_n_positive(n):
+---> 58     roots = find_all_roots(n)
+     59     ratios = []
+     60     for c in roots:
+/tmp/ipykernel_768/1798831323.py in find_all_roots(n, c_min_factor, c_max_factor)
+      1 def find_all_roots(n, c_min_factor=1.0001, c_max_factor=20):
+----> 2     a = F[n+2]
+      3     diff = F[n-1]
+      4     p = F[n]
+      5     # lower bound c > p
+IndexError: list index out of range
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_744/19248478.py in <cell line: 0>()
+----> 1 A = sp.Point(data2['A'] if 'A' in data2 else None)
+/usr/local/lib/python3.12/dist-packages/sympy/geometry/point.py in __new__(cls, *args, **kwargs)
+    123 
+    124         if not is_sequence(coords):
+--> 125             raise TypeError(filldedent('''
+    126                 Expecting sequence of coordinates, not `{}`'''
+    127                                        .format(func_name(coords))))
+TypeError: 
+Expecting sequence of coordinates, not `NoneType`
+
+Attempt 4 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 5 produced Python Error:
+
+---------------------------------------------------------------------------ZeroDivisionError                         Traceback (most recent call last)/tmp/ipykernel_746/3777563941.py in <cell line: 0>()
+      6     return None
+      7 
+----> 8 print(find_positive_A(0.1,1.0))
+/tmp/ipykernel_746/3777563941.py in find_positive_A(a, c)
+      1 def find_positive_A(a,c):
+      2     for r in [i*0.01 for i in range(1,500)]:
+----> 3         y = compute_A_y(a,c,r)
+      4         if y is not None and y > 0:
+      5             return r, y
+/tmp/ipykernel_746/1767655331.py in compute_A_y(a, c, r)
+      1 def compute_A_y(a,c,r):
+      2     # returns y-coordinate of A using our formula
+----> 3     mB = 2*a*r/(a**2 - r**2)
+      4     mC = 2*(c-a)*r/((c-a)**2 - r**2)
+      5     if abs(mB - mC) < 1e-12:
+ZeroDivisionError: float division by zero
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------ZeroDivisionError                         Traceback (most recent call last)/tmp/ipykernel_765/3076739933.py in <cell line: 0>()
+      3 
+      4 for r_val in [1e-9, 1e-6, 1e-4, 0.001, 0.01, 0.1]:
+----> 5     print(r_val, cond_val(987,1597,r_val))
+/tmp/ipykernel_765/3076739933.py in cond_val(x, y, r)
+      1 def cond_val(x, y, r):
+----> 2     return compute_condition(x, y, r)
+      3 
+      4 for r_val in [1e-9, 1e-6, 1e-4, 0.001, 0.01, 0.1]:
+      5     print(r_val, cond_val(987,1597,r_val))
+/tmp/ipykernel_765/3762797084.py in compute_condition(x, y, r)
+     19     wx = Dx - Ex
+     20     wy = Dy - Ey
+---> 21     t = (vx*wx + vy*wy) / (vx*vx + vy*vy)
+     22     Nx = Ex + t*vx
+     23     Ny = Ey + t*vy
+ZeroDivisionError: float division by zero
+
+Attempt 7 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_765/2174138088.py in <cell line: 0>()
+----> 1 root_small = mp.findroot(lambda r: compute_condition(987,1597,r), (0.1,0.2))
+      2 root_small
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    967             maxsteps = iterations.maxsteps
+    968         i = 0
+--> 969         for x, error in iterations:
+    970             if verbose:
+    971                 print('x:    ', x)
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in __iter__(self)
+     95             if not l:
+     96                 break
+---> 97             s = (f1 - f0) / l
+     98             if not s:
+     99                 break
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'mpf'
+
+Attempt 4 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds

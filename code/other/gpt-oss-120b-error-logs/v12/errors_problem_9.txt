@@ -1,0 +1,210 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771330617.87
+
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_830/1236201935.py in <cell line: 0>()
+      9 for e in range(1,21):
+     10     n=2*e
+---> 11     poly=sp.expand(sp.npoly.cyclotomic_poly(n,x))
+     12     deg=sp.degree(poly, x)
+     13     phi2.append((e, n, deg, poly))
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_812/1914802225.py in <cell line: 0>()
+      1 x = sp.Symbol('x')
+      2 cyclo = {
+----> 3     2: sp.npolycyclotomic(2, x), # or sp.cyclotomic_poly
+      4 }
+AttributeError: module 'sympy' has no attribute 'npolycyclotomic'
+
+[PYTHON ERROR] Attempt 0:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_746/981520392.py in <cell line: 0>()
+      5         if deg <= 8:
+      6             n = 2*d
+----> 7             poly = sp.npoly.cyclotomic_poly(n, sp.Symbol('x')) # but sympy's cyclotomic_poly takes n
+      8             # Actually n is the index.
+      9             poly = sp.npoly.cyclotomic_poly(n, sp.Symbol('x'))
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+[PYTHON ERROR] Attempt 0:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_746/2546614680.py in <cell line: 0>()
+      7 x = Symbol('x')
+      8 poly_list = [p for (_,_,p) in candidates]  # only polynomial objects
+----> 9 degree_list = [p.degree() for p in poly_list]
+     10 
+     11 subset_polys = []
+AttributeError: 'Add' object has no attribute 'degree'
+
+[PYTHON ERROR] Attempt 0:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_746/132809680.py in <cell line: 0>()
+     11             prod = sp.Poly(1, x)
+     12             for i in combo:
+---> 13                 prod = sp.expand(prod * poly_list[i].as_expr())
+     14             # simplify to Poly
+     15             prod = sp.Poly(prod, x)
+/usr/local/lib/python3.12/dist-packages/sympy/core/function.py in expand(e, deep, modulus, power_base, power_exp, mul, log, multinomial, basic, **hints)
+   2813     hints['multinomial'] = multinomial
+   2814     hints['basic'] = basic
+-> 2815     return sympify(e).expand(deep=deep, modulus=modulus, **hints)
+   2816 
+   2817 # This is a special application of two hints
+AttributeError: 'Poly' object has no attribute 'expand'
+
+[PYTHON ERROR] Attempt 5:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_794/2894146737.py in <cell line: 0>()
+     16             poly = polynomial_of_subset(subset)  # polynomial with integer coefficients
+     17             # convert to list of coefficients up to degree deg
+---> 18             coeffs = [int(poly.expand().coeff(x, i)) for i in range(deg+1)]  # degree deg
+     19             # Ensure constant term is 1 (should be)
+     20             # produce for each shift c and sign
+AttributeError: 'int' object has no attribute 'expand'
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_806/1112101647.py in <cell line: 0>()
+     17     for a in range(0, 9 - deg):
+     18         # shift by a
+---> 19         A = shift(coeff, a)
+     20         # store positive and negative
+     21         A_polys.append(tuple(A))
+/tmp/ipykernel_806/1112101647.py in shift(poly, a)
+      2     # poly list low->high, shift by a exponents (i.e., multiply by x^a)
+      3     if a >= 0:
+----> 4         return [0]*a + poly
+      5     else:
+      6         # remove leading terms
+TypeError: can only concatenate list (not "tuple") to list
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------AssertionError                            Traceback (most recent call last)/tmp/ipykernel_780/2272783954.py in <cell line: 0>()
+     21         B = sp.expand(D * x**(-shift))
+     22         # Verify product
+---> 23         assert sp.expand(A * B - (1 + x**d)) == 0
+     24         # Record both signs
+     25         for sign in [1, -1]:
+AssertionError: 
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_752/4032161326.py in <cell line: 0>()
+     52 bad = []
+     53 for alpha in alpha_polys:
+---> 54     if not test_alpha(alpha):
+     55         all_good = False
+     56         bad.append(alpha)
+/tmp/ipykernel_752/4032161326.py in test_alpha(alpha)
+     24 
+     25 def test_alpha(alpha):
+---> 26     s, d = factor_alpha(alpha)
+     27     beta, r = compute_beta(d)
+     28     k = s
+/tmp/ipykernel_752/3756034917.py in factor_alpha(poly)
+      3     # compute min power:
+      4     terms = sp.Poly(poly, x).as_dict()
+----> 5     min_exp = min(exp for exp, coeff in terms.keys())
+      6     # factor out x**min_exp
+      7     dpoly = sp.expand(poly / x**min_exp)
+/tmp/ipykernel_752/3756034917.py in <genexpr>(.0)
+      3     # compute min power:
+      4     terms = sp.Poly(poly, x).as_dict()
+----> 5     min_exp = min(exp for exp, coeff in terms.keys())
+      6     # factor out x**min_exp
+      7     dpoly = sp.expand(poly / x**min_exp)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/usr/local/lib/python3.12/dist-packages/sympy/polys/polyutils.py in _parallel_dict_from_expr_if_gens(exprs, opt)
+    228 
+--> 229                         monom[indices[base]] = exp
+    230                     except KeyError:
+KeyError: 1/(-x**2 + x - 1)
+During handling of the above exception, another exception occurred:
+PolynomialError                           Traceback (most recent call last)/tmp/ipykernel_752/750518978.py in <cell line: 0>()
+     30 all_good = True
+     31 for alpha in alpha_polys:
+---> 32     if not test_alpha(alpha):
+     33         all_good = False
+     34         print("bad", alpha)
+/tmp/ipykernel_752/750518978.py in test_alpha(alpha)
+     16     # compute convolution
+     17     # prepare dicts
+---> 18     beta_terms = sp.Poly(beta, x).as_dict()
+     19     alpha_terms = sp.Poly(alpha, x).as_dict()
+     20     beta_dict = {exp[0]:coeff f
+... [Truncated 760 characters] ...
+om_expr(expr, opt)
+    384 
+    385     if opt.gens:
+--> 386         rep, gens = _dict_from_expr_if_gens(expr, opt)
+    387     else:
+    388         rep, gens = _dict_from_expr_no_gens(expr, opt)
+/usr/local/lib/python3.12/dist-packages/sympy/polys/polyutils.py in _dict_from_expr_if_gens(expr, opt)
+    323 def _dict_from_expr_if_gens(expr, opt):
+    324     """Transform an expression into a multinomial form given generators. """
+--> 325     (poly,), gens = _parallel_dict_from_expr_if_gens((expr,), opt)
+    326     return poly, gens
+    327 
+/usr/local/lib/python3.12/dist-packages/sympy/polys/polyutils.py in _parallel_dict_from_expr_if_gens(exprs, opt)
+    232                             coeff.append(factor)
+    233                         else:
+--> 234                             raise PolynomialError("%s contains an element of "
+    235                                                   "the set of generators." % factor)
+    236 
+PolynomialError: 1/(-x**2 + x - 1) contains an element of the set of generators.
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------AssertionError                            Traceback (most recent call last)/tmp/ipykernel_830/3130960671.py in <cell line: 0>()
+     43             A = sp.expand(D_signed * x**p)
+     44             total += 1
+---> 45             if check_alpha_fast2(A):
+     46                 good += 1
+     47             else:
+/tmp/ipykernel_830/3130960671.py in check_alpha_fast2(A)
+     12     D0 = sp.expand(A / x**p)
+     13     # compute d and Q
+---> 14     Q, d = construct_beta(D0)
+     15     # product
+     16     prod = sp.expand(A * Q)
+/tmp/ipykernel_830/3130960671.py in construct_beta(D0)
+      3     # Compute Q = (1 + x**d) // D0 (division in ZZ)
+      4     Q, r = sp.div(1 + x**d, D0, domain=sp.ZZ)
+----> 5     assert r == 0
+      6     return Q, d
+      7 
+AssertionError: 

@@ -1,0 +1,107 @@
+(424e18) A tournament is held with $2^{20}$ runners each of which has a different running speed. In each race, two runners compete against each other with the faster runner always winning the race. The competition consists of $20$ rounds with each runner starting with a score of $0$. In each round, the runners are paired in such a way that in each pair, both runners have the same score at the beginning of the round. The winner of each race in the $i^{\text{th}}$ round receives $2^{20-i}$ points and the loser gets no points.
+
+At the end of the tournament, we rank the competitors according to their scores. Let $N$ denote the number of possible orderings of the competitors at the end of the tournament. Let $k$ be the largest positive integer such that $10^k$ divides $N$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771342268.85
+
+
+Attempt 6 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_812/1664182210.py in <cell line: 0>()
+     67 
+     68 orders = tournament_orders(2)
+---> 69 len(orders), orders[:5]
+TypeError: 'set' object is not subscriptable
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_735/2616907206.py in <cell line: 0>()
+     16 
+     17 orders2 = final_scores_sets(2)
+---> 18 len(orders2), orders2[:5]
+TypeError: 'set' object is not subscriptable
+
+Attempt 4 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_745/2957460838.py in <cell line: 0>()
+     20     return total
+     21 
+---> 22 v5_total = compute_v5()
+     23 print("v5(N) total:", v5_total)
+/tmp/ipykernel_745/2957460838.py in compute_v5()
+     15     for j in range(0, 20):
+     16         weight = 2**(19-j)  # exponent
+---> 17         v = v_p_catalan_power_of_two(j, 5)
+     18         total += weight * v
+     19         print(j, 2**j, v, weight, total)
+/tmp/ipykernel_745/2957460838.py in v_p_catalan_power_of_two(j, p)
+      8 def v_p_catalan_power_of_two(j, p):
+      9     n = 2**j
+---> 10     v = v_p_binom(2*n, n, p) - v_p_int(n+1, p)
+     11     return v
+     12 
+NameError: name 'v_p_binom' is not defined
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_745/3938346037.py in <cell line: 0>()
+     16     return total
+     17 
+---> 18 v5_total = compute_v5()
+     19 print("total v5(N) =", v5_total)
+/tmp/ipykernel_745/3938346037.py in compute_v5()
+     11     for j in range(0, 20):
+     12         weight = 2**(19-j)
+---> 13         v = v_p_catalan_power_of_two(j, 5)
+     14         total += weight * v
+     15         print(j, 2**j, v, weight, total)
+/tmp/ipykernel_745/3938346037.py in v_p_catalan_power_of_two(j, p)
+      5 def v_p_catalan_power_of_two(j, p):
+      6     n = 2**j
+----> 7     return v_p_binom_n(n, p) - v_p_int(n+1, p)
+      8 
+      9 def compute_v5():
+/tmp/ipykernel_745/3938346037.py in v_p_binom_n(n, p)
+      1 def v_p_binom_n(n, p):
+      2     # compute v_p(binomial(2n, n))
+----> 3     return v_p_factorial(2*n, p) - 2 * v_p_factorial(n, p)
+      4 
+      5 def v_p_catalan_power_of_two(j, p):
+NameError: name 'v_p_factorial' is not defined
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_735/1001016099.py in <cell line: 0>()
+      2     return sp.valuation(catalan(n), 5)
+      3 for s in range(0,10):
+----> 4     print(s, v5_sym(2**s))
+/tmp/ipykernel_735/1001016099.py in v5_sym(n)
+      1 def v5_sym(n):
+----> 2     return sp.valuation(catalan(n), 5)
+      3 for s in range(0,10):
+      4     print(s, v5_sym(2**s))
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+Attempt 5 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds

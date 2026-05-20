@@ -1,0 +1,25 @@
+(a295e9) A $500 \times 500$ square is divided into $k$ rectangles, each having integer side lengths. Given that no two of these rectangles have the same perimeter, the largest possible value of $k$ is $\mathcal{K}$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771347811.32
+
+
+Attempt 2 produced Python Error:
+
+/tmp/ipykernel_774/2689796176.py:2: SymPyDeprecationWarning: 
+
+The `sympy.ntheory.partitions_.npartitions` has been moved to `sympy.functions.combinatorial.numbers.partition`.
+
+See https://docs.sympy.org/latest/explanation/active-deprecations.html#deprecated-ntheory-symbolic-functions
+for details.
+
+This has been deprecated since SymPy version 1.13. It
+will be removed in a future version of SymPy.
+
+  p_d_500 = sp.npartitions(500, kind='distinct')
+/usr/local/lib/python3.12/dist-packages/sympy/utilities/decorator.py in wrapper(*args, **kwargs)
+    328             def wrapper(*args, **kwargs):
+    329                 sympy_deprecation_warning(message, **decorator_kwargs, stacklevel=stacklevel)
+--> 330                 return wrapped(*args, **kwargs)
+    331             wrapper._sympy_deprecated_func = wrapped
+    332         return wrapper
+TypeError: npartitions() got an unexpected keyword argument 'kind'

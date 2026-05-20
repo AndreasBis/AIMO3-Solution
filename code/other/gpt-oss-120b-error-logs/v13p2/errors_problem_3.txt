@@ -1,0 +1,25 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771348359.23
+
+
+Attempt 2 produced Python Error:
+
+NameError: name 'v_sq' is not defined
+
+
+Attempt 5 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/sympy/simplify/simplify.py in simplify(expr, ratio, measure, rational, inverse, doit, **kwargs)
+    601         return _eval_simplify(**kwargs)
+    602 
+--> 603     original_expr = expr = collect_abs(signsimp(expr))
+    604 
+    605     if not isinstance(expr, Basic) or not expr.args:  # XXX: temporary hack
+/usr/local/lib/python3.12/dist-packages/sympy/simplify/radsimp.py in collect_abs(expr)
+    623       return Mul._from_args(args, is_commutative=not nc)
+    624 
+--> 625     return expr.replace(
+    626         lambda x: isinstance(x, Mul),
+    627         lambda x: _abs(x)).replace(
+AttributeError: 'NoneType' object has no attribute 'replace'

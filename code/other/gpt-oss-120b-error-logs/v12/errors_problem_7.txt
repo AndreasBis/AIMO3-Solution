@@ -1,0 +1,516 @@
+(641659) Let $ABC$ be a triangle with $AB \neq AC$, circumcircle $\Omega$, and incircle $\omega$. Let the contact points of $\omega$ with $BC$, $CA$, and $AB$ be $D$, $E$, and $F$, respectively. Let the circumcircle of $AFE$ meet $\Omega$ at $K$ and let the reflection of $K$ in $EF$ be $K'$. Let $N$ denote the foot of the perpendicular from $D$ to $EF$. The circle tangent to line $BN$ and passing through $B$ and $K$ intersects $BC$ again at $T \neq B$. 
+    
+Let sequence $(F_n)_{n \geq 0}$ be defined by $F_0 = 0$, $F_1 = 1$ and for $n \geq 2$, $F_n = F_{n-1} + F_{n-2}$. Call $ABC$ $n$\emph{-tastic} if $BD = F_n$, $CD = F_{n+1}$, and $KNK'B$ is cyclic. Across all $n$-tastic triangles, let $a_n$ denote the maximum possible value of $\frac{CT \cdot NB}{BT \cdot NE}$. Let $\alpha$ denote the smallest real number such that for all sufficiently large $n$, $a_{2n} < \alpha$. Given that $\alpha = p + \sqrt{q}$ for rationals $p$ and $q$, what is the remainder when $\left\lfloor p^{q^p} \right\rfloor$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771331557.92
+
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_746/3715336237.py in <cell line: 0>()
+     20 E = line_AC.projection(I)
+     21 
+---> 22 sp.simplify(F.x), sp.simplify(F.y), sp.simplify(E.x), sp.simple
+     23 
+AttributeError: module 'sympy' has no attribute 'simple'
+
+[PYTHON ERROR] Attempt 0:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_812/2239749637.py in <cell line: 0>()
+----> 1 print(inters)
+NameError: name 'inters' is not defined
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_794/1585199494.py in <cell line: 0>()
+    130 # test with small n
+    131 n = 5
+--> 132 y = sp.Fibonacci(n)  # note sympy's fibonacci
+    133 z = sp.Fibonacci(n+1)
+    134 # pick arbitrary x value e.g., x=3
+AttributeError: module 'sympy' has no attribute 'Fibonacci'
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 7:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_813/206443086.py in <cell line: 0>()
+     78     e = fibonacci(n+1)
+     79     # Choose r some value, say 1
+---> 80     data = triangle_data(d,e,1.5)
+     81     print(n, d, e, data['ratio'].evalf(), data['cyclic'])
+/tmp/ipykernel_813/206443086.py in triangle_data(d, e, r)
+     46     O_T = line_perp_BN.intersection(perp_bis_BK)[0]
+     47     # Circle through B with center O_T
+---> 48     circle_BT = sp.Circle(O_T, B)
+     49     # Intersection of this circle with BC (line y=0) besides B:
+     50     lineBC = sp.Line(B, C)
+/usr/local/lib/python3.12/dist-packages/sympy/geometry/ellipse.py in __new__(cls, *args, **kwargs)
+   1578                 # this will prohibit imaginary radius
+   1579                 try:
+-> 1580                     r = Point(r, 0, evaluate=evaluate).x
+   1581                 except ValueError:
+   1582                     raise GeometryError("Circle with imaginary radius is not permitted")
+/usr/local/lib/python3.12/dist-packages/sympy/geometry/point.py in __new__(cls, *args, **kwargs)
+    156             raise ValueError('Imaginary coordinates are not permitted.')
+    157         if not all(isinstance(a, Expr) for a in coords):
+--> 158             raise TypeError('Coordinates must be valid SymPy expressions.')
+    159 
+    160         # pad with zeros appropriately
+TypeError: Coordinates must be valid SymPy expressions.
+
+[PYTHON ERROR] Attempt 2:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_813/904935705.py in <cell line: 0>()
+----> 1 circle_BT = sp.Circle(O_T, B)
+      2 print(circle_BT.radius)
+/usr/local/lib/python3.12/dist-packages/sympy/geometry/ellipse.py in __new__(cls, *args, **kwargs)
+   1578                 # this will prohibit imaginary radius
+   1579                 try:
+-> 1580                     r = Point(r, 0, evaluate=evaluate).x
+   1581                 except ValueError:
+   1582                     raise GeometryError("Circle with imaginary radius is not permitted")
+/usr/local/lib/python3.12/dist-packages/sympy/geometry/point.py in __new__(cls, *args, **kwargs)
+    156             raise ValueError('Imaginary coordinates are not permitted.')
+    157         if not all(isinstance(a, Expr) for a in coords):
+--> 158             raise TypeError('Coordinates must be valid SymPy expressions.')
+    159 
+    160         # pad with zeros appropriately
+TypeError: Coordinates must be valid SymPy expressions.
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_813/4228169225.py in <cell line: 0>()
+     30     rad = O_T.distance(B)
+     31     print("radius:", rad)
+---> 32 debug_O(2,3,1.5)
+/tmp/ipykernel_813/4228169225.py in debug_O(d, e, r)
+     25     dir_perp_BK=sp.Point(K.y - B.y, B.x - K.x)
+     26     perp_bis_BK=sp.Line(mid_BK, mid_BK + dir_perp_BK)
+---> 27     O_T=line_perp_BN.intersection(perp_bis_BK)[0]
+     28     print("type O_T:", type(O_T))
+     29     # compute radius
+IndexError: list index out of range
+
+[PYTHON ERROR] Attempt 5:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 5:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_780/2286664807.py in <cell line: 0>()
+     12     return ratio, cyclic
+     13 
+---> 14 print(test(2,5))
+/tmp/ipykernel_780/2286664807.py in test(n, s)
+      9     p = fibonacci(n)
+     10     q = fibonacci(n+1)
+---> 11     ratio, cyclic, data = compute_ratio(p,q,s)
+     12     return ratio, cyclic
+     13 
+/tmp/ipykernel_780/2134391541.py in compute_ratio(p, q, s)
+     41     # reflect K across line EF:
+     42     line_EF = sp.Line(E,F)
+---> 43     Kprime = K.mirror(line_EF)  # reflection across line
+     44     # foot N from D onto EF
+     45     N = line_EF.projection(D)
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_794/258478703.py in <cell line: 0>()
+     21 
+     22 for n in [2,3,4,5,6,7,8]:
+---> 23     ratio, xval = max_ratio_for_n(n)
+     24     print(n, ratio, xval)
+/tmp/ipykernel_794/258478703.py in max_ratio_for_n(n)
+     17         if high > 1e6:
+     18             raise Exception("no sign change")
+---> 19     root = mp.findroot(lambda t: numeric_cyclic(y,z,t), (low,high))
+     20     return compute_ratio(y,z,root), root
+     21 
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (7.023849581638791699537871616279144729787665848246013667773176377432363e-35 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/587102198.py in <cell line: 0>()
+      2 ox2, oy2 = sp.symbols('ox2 oy2', real=True)
+      3 
+----> 4 eq_O2_1 = (ox2 - x_A)**2 + (oy2 - y_A)**2 - ((ox2 - x_f)**2 + (oy2 - y_f)**2)
+      5 eq_O2_2 = (ox2 - x_A)**2 + (oy2 - y_A)**2 - ((ox2 - x_e)**2 + (oy2 - y_e)**2)
+      6 
+NameError: name 'x_A' is not defined
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_813/2477345897.py in <cell line: 0>()
+      7     return float(data['ratio'].evalf()), data['ratio'], data['cyclic']
+      8 
+----> 9 print(compute_ratio_val(2,3,1.5))
+/tmp/ipykernel_813/2477345897.py in compute_ratio_val(d, e, r)
+      4 
+      5 def compute_ratio_val(d,e,r):
+----> 6     data=triangle_data(d,e,r)
+      7     return float(data['ratio'].evalf()), data['ratio'], data['cyclic']
+      8 
+/tmp/ipykernel_813/55813204.py in triangle_data(d, e, r)
+     63     # Check cyclic condition: N on circle through B,K,Kp
+     64     circ_BKKp = sp.Circle(B, K, Kp)
+---> 65     cyclic = circ_BKKp.distance(N) < 1e-8
+     66     return {
+     67         'A':A,'F':F,'E':E,'K':K,'Kp':Kp,'N':N,'T':T,'ratio':ratio,
+AttributeError: 'Circle' object has no attribute 'distance'
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_813/3022954693.py in <cell line: 0>()
+      1 c=sp.Circle(sp.Point(0,0), 1)
+      2 p=sp.Point(2,0)
+----> 3 print(c.distance(p))
+AttributeError: 'Circle' object has no attribute 'distance'
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_746/3707983545.py in <cell line: 0>()
+     28     return low, high, f_low, f_high
+     29 
+---> 30 find_r_root(1.0, (1+5**0.5)/2)
+/tmp/ipykernel_746/3707983545.py in find_r_root(d, t)
+      6     high = math.sqrt(d*t) - 1e-6
+      7     # compute function values at ends
+----> 8     val_low, *_ = ratio_CT_NB_BT_NE(d, t, low)
+      9     # Actually we need cyc condition, not ratio.
+     10     # We'll compute cyc condition separately
+/tmp/ipykernel_746/3283444126.py in ratio_CT_NB_BT_NE(d, t, r)
+    191     # compute K (second intersection)
+    192     O1,R1 = circle_from_three(A,B,C)
+--> 193     O2,R2 = circle_from_three(A,F,E)
+    194     inter = intersect_circles(O1,R1,O2,R2)
+    195     # remove A (approx)
+/tmp/ipykernel_746/3283444126.py in circle_from_three(p1, p2, p3)
+     34 
+     35 def circle_from_three(p1,p2,p3):
+---> 36     O = circumcenter(p1,p2,p3)
+     37     R = math.hypot(p1[0]-O[0], p1[1]-O[1])
+     38     return O, R
+/tmp/ipykernel_746/3283444126.py in circumcenter(p1, p2, p3)
+     28     d = 2*(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2))
+     29     if abs(d) < 1e-12:
+---> 30         raise ValueError('Collinear')
+     31     ux = ((x1**2 + y1**2)*(y2 - y3) + (x2**2 + y2**2)*(y3 - y1) + (x3**2 + y3**2)*(y1 - y2))/d
+     32     uy = ((x1**2 + y1**2)*(x3 - x2) + (x2**2 + y2**2)*(x1 - x3) + (x3**2 + y3**2)*(x2 - x1))/d
+ValueError: Collinear
+
+[PYTHON ERROR] Attempt 4:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_780/437633724.py in <cell line: 0>()
+      5     return ratio, cyclic
+      6 
+----> 7 print(test_params(2,5))
+/tmp/ipykernel_780/437633724.py in test_params(n, s)
+      2     p = fibonacci(n)
+      3     q = fibonacci(n+1)
+----> 4     ratio, cyclic, data = compute_ratio(p,q,s)
+      5     return ratio, cyclic
+      6 
+/tmp/ipykernel_780/1116540100.py in compute_ratio(p, q, s)
+     34     # Compute circle through B,N,K and test distance to K'.
+     35     circ_BNK = sp.Circle(B,N,K)
+---> 36     cyclic = circ_BNK.distance(Kprime) < 1e-10
+     37     # circle tangent to BN at B through K
+     38     line_BN = sp.Line(B,N)
+AttributeError: 'Circle' object has no attribute 'distance'
+
+[PYTHON ERROR] Attempt 4:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_780/2959828034.py in <cell line: 0>()
+      1 c = sp.Circle(sp.Point(0,0), 1)
+----> 2 c.distance(sp.Point(0,2))
+AttributeError: 'Circle' object has no attribute 'distance'
+
+[PYTHON ERROR] Attempt 4:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_780/3822489912.py in <cell line: 0>()
+----> 1 float(NB), float(NE), float(CT), float(BT)
+NameError: name 'NB' is not defined
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_746/2638215291.py in <cell line: 0>()
+     31 
+     32 for n in range(2,7):
+---> 33     d = [0,1,1,2,3,5][n] # not correct; we need F_n
+     34 
+IndexError: list index out of range
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_806/1646798561.py in <cell line: 0>()
+      3 
+      4 # circle equations:
+----> 5 eq_circle1 = (xk - O1.x)**2 + (yk - O1.y)**2 - ( (A.x - O1.x)**2 + (A.y - O1.y)**2 )  # radius squared using A
+      6 eq_circle2 = (xk - O2.x)**2 + (yk - O2.y)**2 - ( (A.x - O2.x)**2 + (A.y - O2.y)**2 )
+      7 
+NameError: name 'O1' is not defined
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_746/2578989112.py in <cell line: 0>()
+      7     d = fib(n)  # BD = F_n
+      8     t = fib(n+1) # CD
+----> 9     ratio_val = compute_a_n(d, t)
+     10     print(n, d, t, ratio_val)
+/tmp/ipykernel_746/2638215291.py in compute_a_n(d, t)
+      5     high = math.sqrt(d*t)-1e-6
+      6     # ensure sign opposite
+----> 7     f_low = cyc_value(d,t,low)
+      8     f_high = cyc_value(d,t,high)
+      9     # root may be where sign changes
+/tmp/ipykernel_746/2543288861.py in cyc_value(d, t, r)
+      3     A = pts['A']; B = pts['B']; C = pts['C']; D = pts['D']; E = pts['E']; F = pts['F']
+      4     O1,R1 = circle_from_three(A,B,C)
+----> 5     O2,R2 = circle_from_three(A,F,E)
+      6     inter = intersect_circles(O1,R1,O2,R2)
+      7     # remove A
+/tmp/ipykernel_746/3283444126.py in circle_from_three(p1, p2, p3)
+     34 
+     35 def circle_from_three(p1,p2,p3):
+---> 36     O = circumcenter(p1,p2,p3)
+     37     R = math.hypot(p1[0]-O[0], p1[1]-O[1])
+     38     return O, R
+/tmp/ipykernel_746/3283444126.py in circumcenter(p1, p2, p3)
+     28     d = 2*(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2))
+     29     if abs(d) < 1e-12:
+---> 30         raise ValueError('Collinear')
+     31     ux = ((x1**2 + y1**2)*(y2 - y3) + (x2**2 + y2**2)*(y3 - y1) + (x3**2 + y3**2)*(y1 - y2))/d
+     32     uy = ((x1**2 + y1**2)*(x3 - x2) + (x2**2 + y2**2)*(x1 - x3) + (x3**2 + y3**2)*(x2 - x1))/d
+ValueError: Collinear
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_746/925406577.py in <cell line: 0>()
+      1 d = fib(6)  # F6=8
+      2 t = fib(7)  #13
+----> 3 ratio_val = compute_a_n(d, t)
+      4 ratio_val
+/tmp/ipykernel_746/2638215291.py in compute_a_n(d, t)
+      5     high = math.sqrt(d*t)-1e-6
+      6     # ensure sign opposite
+----> 7     f_low = cyc_value(d,t,low)
+      8     f_high = cyc_value(d,t,high)
+      9     # root may be where sign changes
+/tmp/ipykernel_746/2543288861.py in cyc_value(d, t, r)
+      3     A = pts['A']; B = pts['B']; C = pts['C']; D = pts['D']; E = pts['E']; F = pts['F']
+      4     O1,R1 = circle_from_three(A,B,C)
+----> 5     O2,R2 = circle_from_three(A,F,E)
+      6     inter = intersect_circles(O1,R1,O2,R2)
+      7     # remove A
+/tmp/ipykernel_746/3283444126.py in circle_from_three(p1, p2, p3)
+     34 
+     35 def circle_from_three(p1,p2,p3):
+---> 36     O = circumcenter(p1,p2,p3)
+     37     R = math.hypot(p1[0]-O[0], p1[1]-O[1])
+     38     return O, R
+/tmp/ipykernel_746/3283444126.py in circumcenter(p1, p2, p3)
+     28     d = 2*(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2))
+     29     if abs(d) < 1e-12:
+---> 30         raise ValueError('Collinear')
+     31     ux = ((x1**2 + y1**2)*(y2 - y3) + (x2**2 + y2**2)*(y3 - y1) + (x3**2 + y3**2)*(y1 - y2))/d
+     32     uy = ((x1**2 + y1**2)*(x3 - x2) + (x2**2 + y2**2)*(x1 - x3) + (x3**2 + y3**2)*(x2 - x1))/d
+ValueError: Collinear
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_746/538041515.py in <cell line: 0>()
+     18 d = 8
+     19 t = 13
+---> 20 root = find_root_scan(d,t)
+     21 root
+/tmp/ipykernel_746/538041515.py in find_root_scan(d, t, steps)
+      3     high = math.sqrt(d*t)-1e-6
+      4     prev_r = low
+----> 5     prev_val = cyc_value(d,t,prev_r)
+      6     for i in range(1,steps+1):
+      7         r_test = low + (high - low)*i/steps
+/tmp/ipykernel_746/2543288861.py in cyc_value(d, t, r)
+      3     A = pts['A']; B = pts['B']; C = pts['C']; D = pts['D']; E = pts['E']; F = pts['F']
+      4     O1,R1 = circle_from_three(A,B,C)
+----> 5     O2,R2 = circle_from_three(A,F,E)
+      6     inter = intersect_circles(O1,R1,O2,R2)
+      7     # remove A
+/tmp/ipykernel_746/3283444126.py in circle_from_three(p1, p2, p3)
+     34 
+     35 def circle_from_three(p1,p2,p3):
+---> 36     O = circumcenter(p1,p2,p3)
+     37     R = math.hypot(p1[0]-O[0], p1[1]-O[1])
+     38     return O, R
+/tmp/ipykernel_746/3283444126.py in circumcenter(p1, p2, p3)
+     28     d = 2*(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2))
+     29     if abs(d) < 1e-12:
+---> 30         raise ValueError('Collinear')
+     31     ux = ((x1**2 + y1**2)*(y2 - y3) + (x2**2 + y2**2)*(y3 - y1) + (x3**2 + y3**2)*(y1 - y2))/d
+     32     uy = ((x1**2 + y1**2)*(x3 - x2) + (x2**2 + y2**2)*(x1 - x3) + (x3**2 + y3**2)*(x2 - x1))/d
+ValueError: Collinear
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 5:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_806/1114333726.py in <cell line: 0>()
+----> 1 Kprime = K.mirror(line_EF)  # sympy's mirror method
+      2 Kprime
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+[PYTHON ERROR] Attempt 7:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_813/1299485276.py in <cell line: 0>()
+----> 1 res = ratio_n_r(3, 1.0)
+      2 print(res)
+NameError: name 'ratio_n_r' is not defined
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_806/3415062809.py in <cell line: 0>()
+     20 
+     21 # test values
+---> 22 print(check_condition(1,2,sp.sqrt(1*2))) # r = sqrt(d*dprime)
+/tmp/ipykernel_806/3415062809.py in check_condition(dval, dprimeval, rval)
+     12 
+     13     # line AB, AC
+---> 14     A = sp.Line(B, F).intersection(sp.Line(sp.Point(L,0), E))[0]
+     15 
+     16     # O1, O2 and K etc as earlier functions maybe heavy; but we just use earlier symbolic to compute condition expression
+IndexError: list index out of range
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/1833988888.py in <cell line: 0>()
+----> 1 det_expr_23_simpl = sp.simplify(det_expr_23)
+      2 det_expr_23_simpl
+NameError: name 'det_expr_23' is not defined
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/2941020173.py in <cell line: 0>()
+----> 1 print("ratio:", ratio_val)
+      2 print("NB:", NB_val, "NE:", NE_val, "CT:", CT_val, "BT:", BT_val)
+NameError: name 'ratio_val' is not defined
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/2274677234.py in <cell line: 0>()
+----> 1 ratio_val, NB_val, NE_val, CT_val, BT_val = compute_ratio(2,3, root_r)
+      2 print(ratio_val)
+NameError: name 'compute_ratio' is not defined
+
+[PYTHON ERROR] Attempt 6:
+2 2.9999999999999725
+---------------------------------------------------------------------------IndexError                                Traceback (most recent call last)/tmp/ipykernel_806/720978023.py in <cell line: 0>()
+     25 # compute for some n values
+     26 for n in range(2, 11):
+---> 27     print(n, a_n_value(n))
+/tmp/ipykernel_806/720978023.py in a_n_value(n)
+     19     dprime = fib[n+1]  # CD = F_{n+1}
+     20     # compute ratios
+---> 21     r1 = ratio_product(d, dprime)
+     22     r2 = ratio_other(d, dprime)
+     23     return max(r1, r2)
+/tmp/ipykernel_806/720978023.py in ratio_product(dval, dprimeval)
+      4 def ratio_product(dval, dprimeval):
+      5     # r^2 = d*dprime
+----> 6     return compute_R(dval, dprimeval, d*dprime)
+      7 
+      8 def ratio_other(dval, dprimeval):
+/tmp/ipykernel_806/787284837.py in compute_R(dval, dprimeval, r_sq_expr)
+     23     E = sp.Point(Ex, Ey)
+     24     # line AB & AC
+---> 25     A = sp.Line(B, F).intersection(sp.Line(C, E))[0]
+     26     # compute N foot
+     27     N = sp.Line(E, F).projection(sp.Point(dval_f, 0))
+IndexError: list index out of range
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/412006954.py in <cell line: 0>()
+----> 1 dir(K)
+NameError: name 'K' is not defined
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------ModuleNotFoundError                       Traceback (most recent call last)/tmp/ipykernel_813/2801064515.py in <cell line: 0>()
+----> 1 import matplotlib.pyplot as plt, numpy as np, math, sys, warnings, itertools, json, os, random, collections, fractions, decimal, itertools, math, numpy as np
+ModuleNotFoundError: No module named 'matplotlib'
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_806/3499138338.py in <cell line: 0>()
+      1 # evaluate R_sub numeric for d=1, dprime=2 using sympy expression R_expr_noabs after substitution.
+----> 2 val = float(R_expr_noabs.subs({d:1, dprime:2}).evalf())
+      3 val
+/usr/local/lib/python3.12/dist-packages/sympy/core/expr.py in __float__(self)
+    338         if result.is_number and result.as_real_imag()[1]:
+    339             raise TypeError("Cannot convert complex to float")
+--> 340         raise TypeError("Cannot convert expression to float")
+    341 
+    342     def __complex__(self):
+TypeError: Cannot convert expression to float
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_813/3389324219.py in <cell line: 0>()
+      4     return data
+      5 
+----> 6 data = residuals_for_x(0.4)
+      7 data[:10]
+/tmp/ipykernel_813/3389324219.py in residuals_for_x(x)
+      1 def residuals_for_x(x):
+      2     rs = np.linspace(0.001,0.5,100)
+----> 3     data = [(r, geometry_scaled(x, r)['cyclic_res']) for r in rs]
+      4     return data
+      5 
+TypeError: 'NoneType' object is not subscriptable
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_813/1704118970.py in <cell line: 0>()
+     44 
+     45 # test for x=0.4
+---> 46 roots = roots_for_x(0.4)
+     47 roots
+/tmp/ipykernel_813/1704118970.py in roots_for_x(x)
+     26     # find intervals where sign changes in 0<r<0.5
+     27     rs = np.linspace(0.001, 0.5, 500)
+---> 28     vals = [geometry_scaled(x, r)['cyclic_res'] for r in rs]
+     29     intervals=[]
+     30     for i in range(len(rs)-1):
+TypeError: 'NoneType' object is not subscriptable
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_806/3669645972.py in <cell line: 0>()
+      1 test_expr = d + 1
+----> 2 test_expr.subs(d, 1)
+AttributeError: 'int' object has no attribute 'subs'
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_806/1206481274.py in <cell line: 0>()
+----> 1 test_expr.subs(d, sp.Integer(1))
+AttributeError: 'int' object has no attribute 'subs'
+
+[PYTHON ERROR] Attempt 5:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 5:
+[ERROR] Execution timed out after 6 seconds

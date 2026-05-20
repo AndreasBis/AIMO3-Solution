@@ -1,0 +1,236 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771668373.19
+
+
+Attempt 1 produced Python Error:
+
+7 for N in range(2, 200):
+      8     if N%2==0:
+----> 9         deg = sp.npoly.cyclotomic_poly(N, sp.Symbol('x')).degree()
+     10         if deg <= 8:
+     11             even_cyc.append((N, deg))
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 4 produced Python Error:
+
+6     deg = phi(2*m)
+      7     if deg <= 8:
+----> 8         candidates.append((m, 2*m, deg, sp.ncyclotomic(2*m, sp.Symbol('x')).expand()))
+      9 candidates[:20]
+AttributeError: module 'sympy' has no attribute 'ncyclotomic'
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+5 x=sp.symbols('x')
+      6 for t in vals:
+----> 7     polys[t] = sp.npolyroots(sp.nth_root(t)) # Not good
+      8 
+AttributeError: module 'sympy' has no attribute 'npolyroots'
+
+
+Attempt 6 produced Python Error:
+
+----> 1 cyclotomic_polys = {n: sp.npoly.cyclotomic_poly(n, sp.Symbol('x')) for n in even_n}
+      2 cyclotomic_polys
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 3 produced Python Error:
+
+7     # phi_{2m}
+      8     n = 2*m
+----> 9     cyclo[m] = sp.npoly(sp.ntheory.residue_ntheory.cyclotomic_poly(n, x))
+     10 cyclo
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 4 produced Python Error:
+
+----> 1 len(alphas)
+NameError: name 'alphas' is not defined. Ensure you define every variable and helper function before use.
+
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+52 for coeffs in itertools.product(range(-3,4), repeat=9):
+     53     if any(coeffs):
+---> 54         if is_shifty_alpha(coeffs):
+     55             candidates.append(coeffs)
+     56 len(candidates)
+Cell in is_shifty_alpha(seq)
+     23         return False
+     24     # factor into irreducibles over QQ
+---> 25     fac = sp.factorint(P, modulus=None)  # returns dictionary of factors in QQ? Actually factorint works for integers.
+     26     # sympy factor over integers:
+     27     factors = sp.factor(P, modulus=None)
+TypeError: factorint() got an unexpected keyword argument 'modulus'
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+KeyError: 1/x
+During handling of the above exception, another exception occurred:
+38 
+     39 # Test all generated alphas
+---> 40 all_good = all(is_shifty_construct(alpha) for alpha in alphas)
+     41 all_good
+Cell in <genexpr>(.0)
+     38 
+     39 # Test all generated alphas
+---> 40 all_good = all(is_shifty_construct(alpha) for alpha in alphas)
+     41 all_good
+Cell in is_shifty_construct(alpha)
+     27             # check product is x^k + x^l
+     28             # get exponents
+---> 29             poly = sp.Poly(prod, x)
+     30             terms = poly.as_dict()
+     31             if len(terms) == 2:
+PolynomialError: 1/x contains an element of the set of generators.
+
+
+Attempt 3 produced Python Error:
+
+20 
+     21 # Test all alphas
+---> 22 good = all(is_shifty(list(a)) for a in set(alphas))
+     23 good
+Cell in <genexpr>(.0)
+     20 
+     21 # Test all alphas
+---> 22 good = all(is_shifty(list(a)) for a in set(alphas))
+     23 good
+Cell in is_shifty(alpha_coeffs)
+     14             B_rev = sp.expand((1+x**d)//p)
+     15             # compute beta (reverse exponents)
+---> 16             beta = sp.expand(sp.reverse(B_rev, x)) # sympy reverse? not sure. We'll skip.
+     17             # We just need existence, not actual.
+     18             return True
+AttributeError: module 'sympy' has no attribute 'reverse'
+
+
+Attempt 1 produced Python Error:
+
+----> 1 fails = [t for t in polys_set2 if not verify_alpha(t)]
+      2 len(fails)
+Cell in verify_alpha(alpha_coeff)
+     18         found=False
+     19         for N,p in even_cyc:
+---> 20             if sp.expand(fac - p)==0:
+     21                 found=True
+     22                 Nlist.append(N)
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+15     return total
+     16 
+---> 17 total_count()
+Cell in total_count()
+      5     for e, Ns in grouped.items():
+      6         # list of (N,deg) for this group
+----> 7         items = [(N, sp.degree(sp.cyclotomic_poly(N, x))) for N in Ns]
+      8         n = len(items)
+      9         # iterate non-empty subsets
+TypeError: '<=' not supported between instances of 'tuple' and 'int'
+
+
+Attempt 2 produced Python Error:
+
+KeyError: 1/(x**2 - x + 1)
+During handling of the above exception, another exception occurred:
+51 good = True
+     52 for coeffs in alpha_polys:
+---> 53     if not is_shifty_by_construct(coeffs):
+     54         good = False
+     55         print("Failed", coeffs)
+Cell in is_shifty_by_construct(alpha_seq)
+     43     # check if Q has integer coefficients
+     44     # check denominators
+---> 45     if any(c.q != 1 for c in sp.Poly(Q, x).coeffs()):
+     46         return False
+     47     # else exists
+PolynomialError: 1/(x**2 - x + 1) contains an element of the set of generators.
+
+
+Attempt 2 produced Python Error:
+
+KeyError: 1/(x**2 - x + 1)
+During handling of the above exception, another exception occurred:
+5     return None
+      6 
+----> 7 failing_example()
+Cell in failing_example()
+      1 def failing_example():
+      2     for coeffs in alpha_polys:
+----> 3         if not is_shifty_by_construct(coeffs):
+      4             return coeffs
+      5     return None
+Cell in is_shifty_by_construct(alpha_seq)
+     43     # check if Q has integer coefficients
+     44     # check denominators
+---> 45     if any(c.q != 1 for c in sp.Poly(Q, x).coeffs()):
+     46         return False
+     47     # else exists
+PolynomialError: 1/(x**2 - x + 1) contains an element of the set of generators.

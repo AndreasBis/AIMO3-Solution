@@ -1,0 +1,17 @@
+(92ba6a) Alice and Bob are each holding some integer number of sweets. Alice says to Bob: ``If we each added the number of sweets we're holding to our (positive integer) age, my answer would be double yours. If we took the product, then my answer would be four times yours.'' Bob replies: ``Why don't you give me five of your sweets because then both our sum and product would be equal.'' What is the product of Alice and Bob's ages?
+
+Budget: 996.00 seconds | Deadline: 1771640895.74
+
+
+Attempt 3 produced Python Error:
+
+PolyNonlinearError: 
+nonlinear cross-term: a*x
+During handling of the above exception, another exception occurred:
+NonlinearError: 
+nonlinear cross-term: a*x
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.

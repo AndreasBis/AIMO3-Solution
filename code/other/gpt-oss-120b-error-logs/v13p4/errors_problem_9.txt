@@ -1,0 +1,122 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771414712.71
+
+
+Attempt 4 produced Python Error:
+
+TypeError: 'Add' object cannot be interpreted as an integer
+During handling of the above exception, another exception occurred:
+ValueError: x + 1 is not an integer
+
+
+Attempt 2 produced Python Error:
+
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 2 produced Python Error:
+
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 2 produced Python Error:
+
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 4 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'ncyclotomic_poly'
+
+
+Attempt 6 produced Python Error:
+
+AttributeError: 'int' object has no attribute 'expand'
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+AttributeError: 'NoneType' object has no attribute 'degree'
+
+
+Attempt 1 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 8 produced Python Error:
+
+KeyError: 1/(x**6 - x**5 + x**4 - x**3 + x**2 - x + 1)
+During handling of the above exception, another exception occurred:
+PolynomialError: 1/(x**6 - x**5 + x**4 - x**3 + x**2 - x + 1) contains an element of the set of generators.
+
+
+Attempt 7 produced Python Error:
+
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 7 produced Python Error:
+
+KeyError: 1/(-x - 1)
+During handling of the above exception, another exception occurred:
+PolynomialError: 1/(-x - 1) contains an element of the set of generators.
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 8 produced Python Error:
+
+exception x**8 - x**4 + 1 list index out of range
+IndexError: list index out of range
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: 'int' object has no attribute 'expand'
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range

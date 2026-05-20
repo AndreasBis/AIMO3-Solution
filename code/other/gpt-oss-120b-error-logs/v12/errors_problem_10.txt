@@ -1,0 +1,296 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771330862.09
+
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_756/160049885.py in <cell line: 0>()
+     30 
+     31 f_small = f_bruteforce(200, max_k=5000)
+---> 32 f_small[:10]
+KeyError: slice(None, 10, None)
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_779/101581360.py in <cell line: 0>()
+     29 
+     30 fvals = f_small(200)
+---> 31 fvals[:10]
+KeyError: slice(None, 10, None)
+
+[PYTHON ERROR] Attempt 7:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_797/18954.py in <cell line: 0>()
+     24 # compute first few f(N)
+     25 vals = {N: f_bruteforce(N) for N in range(6,101)}
+---> 26 vals[:10]
+KeyError: slice(None, 10, None)
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_809/4242131307.py in <cell line: 0>()
+----> 1 c_vals = [0, 4* (3**2025 % 7 if False else None), 1848374, 10162574, 265710644, 44636594]
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_756/3181010327.py in <cell line: 0>()
+      6 for n in range(6, 101):
+      7     facts[n] = sympy.factorint(f_upto_500[n])
+----> 8 facts[:5]
+KeyError: slice(None, 5, None)
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_779/195861443.py in <cell line: 0>()
+     25 
+     26 M6, res6 = test_M(6)
+---> 27 M6, res6[:5]
+KeyError: slice(None, 5, None)
+
+[PYTHON ERROR] Attempt 0:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/usr/local/lib/python3.12/dist-packages/IPython/core/formatters.py in __call__(self, obj)
+    700                 type_pprinters=self.type_printers,
+    701                 deferred_pprinters=self.deferred_printers)
+--> 702             printer.pretty(obj)
+    703             printer.flush()
+    704             return stream.getvalue()
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    375                 if cls in self.type_pprinters:
+    376                     # printer registered in self.type_pprinters
+--> 377                     return self.type_pprinters[cls](obj, self, cycle)
+    378                 else:
+    379                     # deferred printer
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in inner(obj, p, cycle)
+    553                 p.text(',')
+    554                 p.breakable()
+--> 555     
+... [Truncated 194 characters] ...
+n pretty(self, obj)
+    392                         if cls is not object \
+    393                                 and callable(cls.__dict__.get('__repr__')):
+--> 394                             return _repr_pprint(obj, self, cycle)
+    395 
+    396             return _default_pprint(obj, self, cycle)
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in _repr_pprint(obj, p, cycle)
+    698     """A pprint that just redirects to the normal repr function."""
+    699     # Find newlines and replace them with p.break_()
+--> 700     output = repr(obj)
+    701     lines = output.splitlines()
+    702     with p.group():
+/usr/lib/python3.12/fractions.py in __repr__(self)
+    406         """repr(self)"""
+    407         return '%s(%s, %s)' % (self.__class__.__name__,
+--> 408                                self._numerator, self._denominator)
+    409 
+    410     def __str__(self):
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_779/1104694660.py in <cell line: 0>()
+      6     fN = f_brute_N(N, limit_factor=4)
+      7     mods[c] = fN % mod
+----> 8 mods[:10]
+KeyError: slice(None, 10, None)
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_779/2137555687.py in <cell line: 0>()
+----> 1 c_ge2over3 = [c for c,f,_ in [(c,d[c][0],None) for c in range(0,100)] if d[c][0]>=threshold]
+      2 c_ge2over3[:20]
+KeyError: 0
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_779/3224134332.py in <cell line: 0>()
+      2 patterns = {}
+      3 for c in range(0,500):
+----> 4     a = a_vals_K6[c]
+      5     r = c % mod
+      6     patterns.setdefault(r, set()).add(a)
+KeyError: 201
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_797/2510696734.py in <cell line: 0>()
+      2 fac2025 = math.factorial(2025)
+      3 fac2025_bitlen = fac2025.bit_length()
+----> 4 fac2025_digitlen = len(str(fac2025))
+      5 fac2025_digitlen
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/usr/local/lib/python3.12/dist-packages/IPython/core/formatters.py in __call__(self, obj)
+    700                 type_pprinters=self.type_printers,
+    701                 deferred_pprinters=self.deferred_printers)
+--> 702             printer.pretty(obj)
+    703             printer.flush()
+    704             return stream.getvalue()
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    392                         if cls is not object \
+    393                                 and callable(cls.__dict__.get('__repr__')):
+--> 394                             return _repr_pprint(obj, self, cycle)
+    395 
+    396             return _default_pprint(obj, self, cycle)
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in _repr_pprint(obj, p, cycle)
+    698     """A pprint that just redirects to the normal repr function."""
+    699     # Find newlines and replace them with p.break_()
+--> 700     output = repr(obj)
+    701     lines = output.splitlines()
+    702     with p.group():
+/usr/lib/python3.12/fractions.py in __repr__(self)
+    406         """repr(self)"""
+    407         return '%s(%s, %s)' % (self.__class__.__name__,
+--> 408                                self._numerator, self._denominator)
+    409 
+    410     def __str__(self):
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_797/3555546381.py in <cell line: 0>()
+      6     return None
+      7 
+----> 8 offsets = [0, 4* (pow(3, fac2025, 10**9+7) if False else None)]
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_749/2577708158.py in <cell line: 0>()
+----> 1 (p+q) % 99991
+NameError: name 'p' is not defined
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_756/3698209010.py in <cell line: 0>()
+      4     return M, fM, fM/M
+      5 for k in range(1,8):
+----> 6     M,fM,ratio = f_of_power_of_3(k)
+      7     print(k, M, fM, ratio)
+/tmp/ipykernel_756/3698209010.py in f_of_power_of_3(k)
+      2     M = 3**k
+      3     fM = f_bruteforce_one(M)
+----> 4     return M, fM, fM/M
+      5 for k in range(1,8):
+      6     M,fM,ratio = f_of_power_of_3(k)
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_779/3271326767.py in <cell line: 0>()
+      1 diffs = {c: fvals[c] - (2*729//3) for c in range(0,101)}
+----> 2 diffs[:10]
+KeyError: slice(None, 10, None)
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_809/2824836523.py in <cell line: 0>()
+----> 1 best_m, best_ratio = find_best_ratio(c, 20000)
+      2 best_m, best_ratio
+/tmp/ipykernel_809/4077419698.py in find_best_ratio(c, max_m)
+      3     best_m=None
+      4     for m in range(6, max_m+1):
+----> 5         if (c == '4M' and (5 * M_mod_large[m]) % m == 0) or (c != '4M' and (M_mod_large[m] + (c % m)) % m == 0):
+      6             # compute ratio if not cached
+      7             if m not in ratios:
+KeyError: 10001
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_809/2577708158.py in <cell line: 0>()
+----> 1 (p+q) % 99991
+NameError: name 'q' is not defined
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/usr/local/lib/python3.12/dist-packages/IPython/core/formatters.py in __call__(self, obj)
+    700                 type_pprinters=self.type_printers,
+    701                 deferred_pprinters=self.deferred_printers)
+--> 702             printer.pretty(obj)
+    703             printer.flush()
+    704             return stream.getvalue()
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    375                 if cls in self.type_pprinters:
+    376                     # printer registered in self.type_pprinters
+--> 377                     return self.type_pprinters[cls](obj, self, cycle)
+    378                 else:
+    379                     # deferred printer
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in inner(obj, p, cycle)
+    553                 p.text(',')
+    554                 p.breakable()
+--> 555     
+... [Truncated 194 characters] ...
+n pretty(self, obj)
+    392                         if cls is not object \
+    393                                 and callable(cls.__dict__.get('__repr__')):
+--> 394                             return _repr_pprint(obj, self, cycle)
+    395 
+    396             return _default_pprint(obj, self, cycle)
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in _repr_pprint(obj, p, cycle)
+    698     """A pprint that just redirects to the normal repr function."""
+    699     # Find newlines and replace them with p.break_()
+--> 700     output = repr(obj)
+    701     lines = output.splitlines()
+    702     with p.group():
+/usr/lib/python3.12/fractions.py in __repr__(self)
+    406         """repr(self)"""
+    407         return '%s(%s, %s)' % (self.__class__.__name__,
+--> 408                                self._numerator, self._denominator)
+    409 
+    410     def __str__(self):
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_756/3337658118.py in <cell line: 0>()
+     23 # compute for each c
+     24 for c in c_values:
+---> 25     r, tri = find_min_ratio(c, a_limit=300, S_limit=1000)
+     26     print(c, r, tri)
+/tmp/ipykernel_756/3337658118.py in find_min_ratio(c, a_limit, S_limit)
+     14                     continue
+     15                 # check divisibility condition N mod S == 0
+---> 16                 if (M_mod[S] + c) % S == 0:
+     17                     r = Fraction(L, S)  # use fractions
+     18                     if best_r is None or r < best_r:
+KeyError: 620

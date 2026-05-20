@@ -1,0 +1,27 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771330263.65
+
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/3226404662.py in <cell line: 0>()
+----> 1 center, radius, float(sp.Point((0,0)).distance(sp.Point(center)))
+NameError: name 'center' is not defined
+
+[PYTHON ERROR] Attempt 3:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_752/3158491192.py in <cell line: 0>()
+      2 p2 = (2,0)
+      3 p3 = (3,4)
+----> 4 circle = sp.Circle(sp.Point(p1), sp.Point(p2), sp.Point(p3))
+      5 center = circle.center
+      6 radius = circle.radius
+NameError: name 'sp' is not defined
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 0:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds

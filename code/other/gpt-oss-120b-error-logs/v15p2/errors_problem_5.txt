@@ -1,0 +1,102 @@
+(424e18) A tournament is held with $2^{20}$ runners each of which has a different running speed. In each race, two runners compete against each other with the faster runner always winning the race. The competition consists of $20$ rounds with each runner starting with a score of $0$. In each round, the runners are paired in such a way that in each pair, both runners have the same score at the beginning of the round. The winner of each race in the $i^{\text{th}}$ round receives $2^{20-i}$ points and the loser gets no points.
+
+At the end of the tournament, we rank the competitors according to their scores. Let $N$ denote the number of possible orderings of the competitors at the end of the tournament. Let $k$ be the largest positive integer such that $10^k$ divides $N$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771668642.27
+
+
+Attempt 1 produced Python Error:
+
+70 
+     71 res2 = tournament_outcomes(2)
+---> 72 len(res2), res2[:5]
+TypeError: 'set' object is not subscriptable
+
+
+Attempt 7 produced Python Error:
+
+40     return rec(tuple(sorted(participants)))
+     41 
+---> 42 orders4 = simulate_orders(4)
+     43 print(len(orders4))
+     44 for o in sorted(orders4):
+Cell in simulate_orders(n)
+     38 
+     39     # start
+---> 40     return rec(tuple(sorted(participants)))
+     41 
+     42 orders4 = simulate_orders(4)
+Cell in rec(tuple_ps)
+     31             losers = [min(a,b) for a,b in matching]
+     32             # recursively get orderings for winners and losers
+---> 33             for perm_w in rec(tuple(sorted(winners))): # note: we need to pass as tuple; but order inside doesn't matter because rec uses set of participants not order.
+     34                 for perm_l in rec(tuple(sorted(losers))):
+     35                     # final ordering: winners first then losers (since winners have higher leading bit)
+Cell in rec(tuple_ps)
+     34                 for perm_l in rec(tuple(sorted(losers))):
+     35                     # final ordering: winners first then losers (since winners have higher leading bit)
+---> 36                     all_perms.add(tuple_w + tuple_l)
+     37         return all_perms
+     38 
+NameError: name 'tuple_w' is not defined. Ensure you define every variable and helper function before use.
+
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+24     return vs2,vs5
+     25 
+---> 26 vs2,vs5 = val_series(19)
+     27 vs2[:10], vs5[:10]
+Cell in val_series(max_k)
+     20     for k in range(max_k+1):
+     21         n=2**k
+---> 22         vs2.append(v_p_catalan(n,2))
+     23         vs5.append(v_p_catalan(n,5))
+     24     return vs2,vs5
+Cell in v_p_catalan(n, p)
+     10 def v_p_catalan(n, p):
+     11     # n integer
+---> 12     return v_p_fact(2*n, p) - 2*v_p_fact(n,p) - sp.valuation(n+1, p)  # use sympy for v_p of n+1
+     13 
+     14 def catalan(n):
+AttributeError: module 'sympy' has no attribute 'valuation'. Use `sympy.multiplicity(p, n)` to compute the p-adic valuation of n.
+
+
+Attempt 3 produced Python Error:
+
+6 # test for N up to maybe 16 (Catalan index 8)
+      7 for N in range(1, 9):
+----> 8     print(N, v_p_catalan_sym(N,5), v_p_catalan(N,5))
+Cell in v_p_catalan_sym(N, p)
+      2 def v_p_catalan_sym(N, p):
+      3     cat = sp.binomial(2*N, N) // (N+1)  # sympy integer
+----> 4     return sp.valuation(cat, p)
+      5 
+      6 # test for N up to maybe 16 (Catalan index 8)
+AttributeError: module 'sympy' has no attribute 'valuation'. Use `sympy.multiplicity(p, n)` to compute the p-adic valuation of n.
+
+
+Attempt 7 produced Python Error:
+
+17 # Test small values
+     18 for n in range(1,9):
+---> 19     print(n, v2_catalan(n), v5_catalan(n))
+Cell in v2_catalan(n)
+     10 
+     11 def v2_catalan(n):
+---> 12     return v_p_catalan(n, 2)
+     13 
+     14 def v5_catalan(n):
+Cell in v_p_catalan(n, p)
+      7 
+      8 def v_p_catalan(n, p):
+----> 9     return v_p_binom(2*n, n, p) - v_p_int(n+1, p)
+     10 
+     11 def v2_catalan(n):
+NameError: name 'v_p_binom' is not defined. Ensure you define every variable and helper function before use.

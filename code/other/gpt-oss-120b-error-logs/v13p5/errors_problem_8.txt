@@ -1,0 +1,25 @@
+(42d360) On a blackboard, Ken starts off by writing a positive integer $n$ and then applies the following move until he first reaches $1$. Given that the number on the board is $m$, he chooses a base $b$, where $2 \leq b \leq m$, and considers the unique base-$b$ representation of $m$,
+\begin{equation*}
+    m = \sum_{k = 0}^\infty a_k \cdot b^k
+\end{equation*}
+where $a_k$ are non-negative integers and $0 \leq a_k < b$ for each $k$. Ken then erases $m$ on the blackboard and replaces it with $\sum\limits_{k = 0}^\infty a_k$.
+
+Across all choices of $1 \leq n \leq 10^{10^5}$, the largest possible number of moves Ken could make is $M$. What is the remainder when $M$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771500272.50
+
+
+Attempt 6 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 8 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 1 produced Python Error:
+
+... last 1 frames repeated, from the frame below ...
+RecursionError: maximum recursion depth exceeded

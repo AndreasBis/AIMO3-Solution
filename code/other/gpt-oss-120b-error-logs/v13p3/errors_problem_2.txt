@@ -1,0 +1,39 @@
+(a295e9) A $500 \times 500$ square is divided into $k$ rectangles, each having integer side lengths. Given that no two of these rectangles have the same perimeter, the largest possible value of $k$ is $\mathcal{K}$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771408504.08
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+ModuleNotFoundError: No module named 'pulp'
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+/usr/lib/python3.12/random.py in sample(self, population, k, counts)
+    428         randbelow = self._randbelow
+    429         if not 0 <= k <= n:
+--> 430             raise ValueError("Sample larger than population or is negative")
+    431         result = [None] * k
+    432         setsize = 21        # size of a small set minus size of an empty list
+ValueError: Sample larger than population or is negative
+
+
+Attempt 8 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'maximize'

@@ -1,0 +1,285 @@
+(641659) Let $ABC$ be a triangle with $AB \neq AC$, circumcircle $\Omega$, and incircle $\omega$. Let the contact points of $\omega$ with $BC$, $CA$, and $AB$ be $D$, $E$, and $F$, respectively. Let the circumcircle of $AFE$ meet $\Omega$ at $K$ and let the reflection of $K$ in $EF$ be $K'$. Let $N$ denote the foot of the perpendicular from $D$ to $EF$. The circle tangent to line $BN$ and passing through $B$ and $K$ intersects $BC$ again at $T \neq B$. 
+    
+Let sequence $(F_n)_{n \geq 0}$ be defined by $F_0 = 0$, $F_1 = 1$ and for $n \geq 2$, $F_n = F_{n-1} + F_{n-2}$. Call $ABC$ $n$\emph{-tastic} if $BD = F_n$, $CD = F_{n+1}$, and $KNK'B$ is cyclic. Across all $n$-tastic triangles, let $a_n$ denote the maximum possible value of $\frac{CT \cdot NB}{BT \cdot NE}$. Let $\alpha$ denote the smallest real number such that for all sufficiently large $n$, $a_{2n} < \alpha$. Given that $\alpha = p + \sqrt{q}$ for rationals $p$ and $q$, what is the remainder when $\left\lfloor p^{q^p} \right\rfloor$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771499570.37
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+NameError: name 'eq1' is not defined
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'Fibonacci'
+
+
+Attempt 2 produced Python Error:
+
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+NameError: name 'expr_simpl' is not defined
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 1 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 1 produced Python Error:
+
+n 4 a 8
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 1 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 1 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+AttributeError: module 'mpmath' has no attribute 'linalg'
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+ValueError: Degenerate
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+2 3.0
+4 4.0
+6 4.200000000000000000000000000000000000000000000000000000000000001
+ValueError: Degenerate
+
+
+Attempt 3 produced Python Error:
+
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 7 produced Python Error:
+
+AttributeError: 'matrix' object has no attribute 'dot'
+
+
+Attempt 5 produced Python Error:
+
+8 4.230769230769230769230769230769230769230769230769230769230769231 66.35450723960765997197571228397944885567491826249416160672582905
+10 4.235294117647058823529411764705882352941176470588235294117647059 173.6747480250612912013075456278943067284118768727867066194497412
+12 4.235955056179775280898876404494382022471910112359550561797752809 454.6697531170831056579404897918632954150315433907903233818488898
+ValueError: Degenerate
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+ValueError: dimensions not compatible for multiplication
+
+
+Attempt 7 produced Python Error:
+
+TypeError: geometry.<locals>.eqs() takes 1 positional argument but 2 were given
+During handling of the above exception, another exception occurred:
+TypeError: 'mpf' object is not subscriptable
+During handling of the above exception, another exception occurred:
+TypeError: geometry.<locals>.eqs() takes 1 positional argument but 2 were given
+During handling of the above exception, another exception occurred:
+TypeError: 'mpf' object is not subscriptable
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+ValueError: Could not find root within given tolerance. (0.0000000000000003637217003622588477982035231468875177054170001303401101552842046858218 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'incircle_properties' is not defined
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'compute_diff' is not defined
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'sqrt' is not defined
+
+
+Attempt 4 produced Python Error:
+
+AttributeError: 'Point2D' object has no attribute 'slope'
+
+
+Attempt 2 produced Python Error:
+
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 4 produced Python Error:
+
+KeyError: 'N'
+
+
+Attempt 4 produced Python Error:
+
+AttributeError: 'Point2D' object has no attribute 'slope'
+
+
+Attempt 2 produced Python Error:
+
+TypeError: unsupported operand type(s) for ** or pow(): 'NoneType' and 'int'
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'r' is not defined
+
+
+Attempt 8 produced Python Error:
+
+ModuleNotFoundError: No module named 'mpmmpython'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'ds' is not defined
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'scan_diff_n' is not defined
+
+
+Attempt 3 produced Python Error:
+
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+
+Attempt 7 produced Python Error:
+
+TypeError: argument should be a string or a Rational instance
+
+
+Attempt 3 produced Python Error:
+
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+AttributeError: module 'mpmath' has no attribute 'bisection'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+n= 14 a_n: 4.236051502145958
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.

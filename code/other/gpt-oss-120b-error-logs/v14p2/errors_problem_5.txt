@@ -1,0 +1,58 @@
+(424e18) A tournament is held with $2^{20}$ runners each of which has a different running speed. In each race, two runners compete against each other with the faster runner always winning the race. The competition consists of $20$ rounds with each runner starting with a score of $0$. In each round, the runners are paired in such a way that in each pair, both runners have the same score at the beginning of the round. The winner of each race in the $i^{\text{th}}$ round receives $2^{20-i}$ points and the loser gets no points.
+
+At the end of the tournament, we rank the competitors according to their scores. Let $N$ denote the number of possible orderings of the competitors at the end of the tournament. Let $k$ be the largest positive integer such that $10^k$ divides $N$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771537435.29
+
+
+Attempt 5 produced Python Error:
+
+42 
+     43 orders4 = final_orderings_for_n(4)
+---> 44 len(orders4), orders4[:5]
+TypeError: 'set' object is not subscriptable
+
+
+Attempt 7 produced Python Error:
+
+71 
+     72 orders = tournament_orders(4)
+---> 73 len(orders), orders[:5]
+TypeError: 'set' object is not subscriptable
+
+
+Attempt 8 produced Python Error:
+
+3     n=2**i
+      4     cat=sp.catalan(n)
+----> 5     v5=v_p_catalan(n,5)
+      6     print(i, n, cat, v5)
+NameError: name 'v_p_catalan' is not defined
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+80 
+     81 rankings = tournament_rankings(4)
+---> 82 len(rankings), rankings[:5]
+TypeError: 'set' object is not subscriptable
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.

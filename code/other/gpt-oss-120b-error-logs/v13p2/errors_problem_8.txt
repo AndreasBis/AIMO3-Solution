@@ -1,0 +1,62 @@
+(42d360) On a blackboard, Ken starts off by writing a positive integer $n$ and then applies the following move until he first reaches $1$. Given that the number on the board is $m$, he chooses a base $b$, where $2 \leq b \leq m$, and considers the unique base-$b$ representation of $m$,
+\begin{equation*}
+    m = \sum_{k = 0}^\infty a_k \cdot b^k
+\end{equation*}
+where $a_k$ are non-negative integers and $0 \leq a_k < b$ for each $k$. Ken then erases $m$ on the blackboard and replaces it with $\sum\limits_{k = 0}^\infty a_k$.
+
+Across all choices of $1 \leq n \leq 10^{10^5}$, the largest possible number of moves Ken could make is $M$. What is the remainder when $M$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771349913.89
+
+
+Attempt 4 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (2.252505489146607617934700094544297693231768133900086614719201883916618e-32 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 5 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (7.176262034707901035450626509638371336902006332501389794731224628469501e-29 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 5 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (1.156166739354346202193596892701696518106406921497133817291717335507487e-28 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 2 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (1.659685758969727312883494051635427140701827570963620282473501574511143e-28 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 5 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit

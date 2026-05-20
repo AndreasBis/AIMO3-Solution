@@ -1,0 +1,116 @@
+(424e18) A tournament is held with $2^{20}$ runners each of which has a different running speed. In each race, two runners compete against each other with the faster runner always winning the race. The competition consists of $20$ rounds with each runner starting with a score of $0$. In each round, the runners are paired in such a way that in each pair, both runners have the same score at the beginning of the round. The winner of each race in the $i^{\text{th}}$ round receives $2^{20-i}$ points and the loser gets no points.
+
+At the end of the tournament, we rank the competitors according to their scores. Let $N$ denote the number of possible orderings of the competitors at the end of the tournament. Let $k$ be the largest positive integer such that $10^k$ divides $N$. What is the remainder when $k$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771330418.17
+
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_749/590666161.py in <cell line: 0>()
+     75     return orderings
+     76 
+---> 77 print(tournament_orderings(2))
+/tmp/ipykernel_749/590666161.py in tournament_orderings(n)
+     72             # Recurse
+     73             rec(new_scores, round_idx+1)
+---> 74     rec(start_scores,0)
+     75     return orderings
+     76 
+/tmp/ipykernel_749/590666161.py in rec(scores, round_idx)
+     67             for (a,b) in matchings_combination:
+     68                 # winner determined by speed
+---> 69                 winner = a if speed[a]>speed[b] else b
+     70                 new_scores[winner] += rp
+     71                 # loser unchanged
+KeyError: (0, 1)
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_779/1225629872.py in <cell line: 0>()
+      8 for t in range(0,9):
+      9     n=2**t
+---> 10     print(t,n, v_p_catalan_int(n,2), v_p_catalan_int(n,5))
+/tmp/ipykernel_779/1225629872.py in v_p_catalan_int(n, p)
+      3     from math import comb
+      4     # use sympy maybe big
+----> 5     c = sp.binomial(2*n, n)//(n+1)
+      6     return sp.valuation(c, p)
+      7 
+NameError: name 'sp' is not defined
+
+[PYTHON ERROR] Attempt 6:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_779/2668872534.py in <cell line: 0>()
+      6 for t in range(0,10):
+      7     n=2**t
+----> 8     print(t,n, v_p_catalan_int(n,2), v_p_catalan_int(n,5))
+/tmp/ipykernel_779/2668872534.py in v_p_catalan_int(n, p)
+      2 def v_p_catalan_int(n,p):
+      3     c = sp.binomial(2*n, n)//(n+1)
+----> 4     return sp.valuation(c, p)
+      5 
+      6 for t in range(0,10):
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+[PYTHON ERROR] Attempt 6:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+---------------------------------------------------------------------------RecursionError                            Traceback (most recent call last)/tmp/ipykernel_797/2809113321.py in <cell line: 0>()
+    104     return orderings
+    105 
+--> 106 orderings4 = tournament_orderings(4)
+    107 len(orderings4), orderings4
+/tmp/ipykernel_797/2809113321.py in tournament_orderings(num_players)
+    101     # initial group is all players sorted by speed (slow to fast)
+    102     initial_group=list(range(n))  # 0 slowest, n-1 fastest
+--> 103     orderings = recur([initial_group])
+    104     return orderings
+    105 
+/tmp/ipykernel_797/2809113321.py in recur(groups)
+     84                     next_groups.append(list(losers))
+     85             # Recursively compute orderings from next round groups
+---> 86             suborderings=recur(next_groups)
+     87             # For each ordering sub, we need to produce full ordering of original participants.
+     88             # Since scores are decreasing with each round's win bits; i.e., winners have higher score than losers at this round.
+... last 1 frames repeated, from the frame below ...
+/tmp/ipykernel_797/2809113321.py in recur(groups)
+     84                     next_groups.append(list(losers))
+     85             # Recursively compute orderings from next round groups
+---> 86             suborderings=recur(next_groups)
+     87             # For each ordering sub, we need to produce full ordering of original participants.
+     88             # Since scores are decreasing with each round's win bits; i.e., winners have higher score than losers at this round.
+RecursionError: maximum recursion depth exceeded
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)/tmp/ipykernel_749/1514353486.py in <cell line: 0>()
+     16 
+     17 for n in range(1,10):
+---> 18     print(n, vp_catalan(n,2), vp_catalan_direct(n,2), vp_catalan(n,5), vp_catalan_direct(n,5))
+/tmp/ipykernel_749/1514353486.py in vp_catalan(n, p)
+      7 
+      8 def vp_catalan(n,p):
+----> 9     return vp_factorial(2*n,p) - 2*vp_factorial(n,p) - vp_int(n+1,p)
+     10 
+     11 # test for small n by directly computing Catalan number via integer and counting factors (maybe using sympy)
+NameError: name 'vp_factorial' is not defined
+
+[PYTHON ERROR] Attempt 5:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_767/1646148207.py in <cell line: 0>()
+     12 for m in range(1,6):
+     13     N_val = N_m(m)
+---> 14     v2 = sp.valuation(N_val, 2)
+     15     v5 = sp.valuation(N_val, 5)
+     16     print("m", m, "N", N_val, "v2", v2, "v5", v5, "k", min(v2, v5))
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+[PYTHON ERROR] Attempt 2:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 2:
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_809/3222434267.py in <cell line: 0>()
+     17 for m in range(1,5):
+     18     N=compute_N(m)
+---> 19     print(m,N.bit_length())
+AttributeError: 'One' object has no attribute 'bit_length'

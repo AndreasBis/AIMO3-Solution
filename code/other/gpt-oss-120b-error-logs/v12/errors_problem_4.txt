@@ -1,0 +1,36 @@
+(9c1c5f) Let $f \colon \mathbb{Z}_{\geq 1} \to \mathbb{Z}_{\geq 1}$ be a function such that for all positive integers $m$ and $n$, 
+\begin{equation*}
+    f(m) + f(n) = f(m + n + mn).
+\end{equation*}
+Across all functions $f$ such that $f(n) \leq 1000$ for all $n \leq 1000$, how many different values can $f(2024)$ take?
+
+Budget: 996.00 seconds | Deadline: 1771330157.58
+
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------KeyError                                  Traceback (most recent call last)/tmp/ipykernel_749/868845925.py in <cell line: 0>()
+     11     # e_max is max exponent
+     12     bounds[p] = 1000 // e_max if e_max>0 else 1000
+---> 13 bounds[:10]
+KeyError: slice(None, 10, None)
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 1:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 7:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_809/538960194.py in <cell line: 0>()
+      4     inequalities.append((e3,e5,1000-t))
+      5 
+----> 6 for (e3,e5,t) in constraints_dict.items():
+      7     if e3>0 or e5>0:
+      8         add(e3,e5,t)
+ValueError: not enough values to unpack (expected 3, got 2)
+
+[PYTHON ERROR] Attempt 0:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 0:
+[ERROR] Execution timed out after 6 seconds

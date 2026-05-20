@@ -1,0 +1,85 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771668817.25
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+1 # Compute D2,E2,F2
+      2 D2,E2,F2=sp.symbols('D2 E2 F2')
+----> 3 eq1 = sp.Eq(xC**2 + yC**2 + D2*xC + E2*yC + F2, 0)  # Wait xC not defined
+      4 
+NameError: name 'xC' is not defined. Ensure you define every variable and helper function before use.
+
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+----> 1 print(min_perimeter)
+NameError: name 'min_perimeter' is not defined. Ensure you define every variable and helper function before use.
+
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.

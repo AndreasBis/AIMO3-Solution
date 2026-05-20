@@ -1,0 +1,49 @@
+(42d360) On a blackboard, Ken starts off by writing a positive integer $n$ and then applies the following move until he first reaches $1$. Given that the number on the board is $m$, he chooses a base $b$, where $2 \leq b \leq m$, and considers the unique base-$b$ representation of $m$,
+\begin{equation*}
+    m = \sum_{k = 0}^\infty a_k \cdot b^k
+\end{equation*}
+where $a_k$ are non-negative integers and $0 \leq a_k < b$ for each $k$. Ken then erases $m$ on the blackboard and replaces it with $\sum\limits_{k = 0}^\infty a_k$.
+
+Across all choices of $1 \leq n \leq 10^{10^5}$, the largest possible number of moves Ken could make is $M$. What is the remainder when $M$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771331962.80
+
+
+[PYTHON ERROR] Attempt 1:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_746/104126923.py in <cell line: 0>()
+      2 
+      3 f=lambda b: (b-1)/mp.log(b)
+----> 4 root= mp.findroot(lambda b: mp.log(b)-1+1/b, 3) # initial guess near 3
+      5 root
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (2.252505489146607617934700094544297693231768133900086614719201883916618e-32 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+[PYTHON ERROR] Attempt 0:
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_812/323814155.py in <cell line: 0>()
+      2 
+      3 f = lambda x: mp.log(x) - 1 + 1/x
+----> 4 root = mp.findroot(f, 3)  # initial guess 3
+      5 root
+/usr/local/lib/python3.12/dist-packages/mpmath/calculus/optimization.py in findroot(ctx, f, x0, solver, tol, verbose, verify, **kwargs)
+    983             xl = x
+    984         if verify and norm(f(*xl))**2 > tol: # TODO: better condition?
+--> 985             raise ValueError('Could not find root within given tolerance. '
+    986                              '(%s > %s)\n'
+    987                              'Try another starting point or tweak arguments.'
+ValueError: Could not find root within given tolerance. (2.252505489146607617934700094544297693231768133900086614719201883916618e-32 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+[PYTHON ERROR] Attempt 3:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 0:
+[ERROR] Execution timed out after 6 seconds
+
+[PYTHON ERROR] Attempt 4:
+[ERROR] Execution timed out after 6 seconds

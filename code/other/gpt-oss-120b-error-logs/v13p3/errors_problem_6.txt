@@ -1,0 +1,22 @@
+(26de63) Define a function $f \colon \mathbb{Z}_{\geq 1} \to \mathbb{Z}_{\geq 1}$ by
+\begin{equation*}
+    f(n) = \sum_{i = 1}^n \sum_{j = 1}^n j^{1024} \left\lfloor\frac1j + \frac{n-i}{n}\right\rfloor.
+\end{equation*}
+Let $M=2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13$ and let $N = f{\left(M^{15}\right)} - f{\left(M^{15}-1\right)}$. Let $k$ be the largest non-negative integer such that $2^k$ divides $N$. What is the remainder when $2^k$ is divided by $5^7$?
+
+Budget: 996.00 seconds | Deadline: 1771410143.96
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+
+Attempt 1 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+
+Attempt 4 produced Python Error:
+
+ValueError: inverse of 249856 (mod 2097152) does not exist

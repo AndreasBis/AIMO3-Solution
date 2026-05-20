@@ -1,0 +1,53 @@
+(26de63) Define a function $f \colon \mathbb{Z}_{\geq 1} \to \mathbb{Z}_{\geq 1}$ by
+\begin{equation*}
+    f(n) = \sum_{i = 1}^n \sum_{j = 1}^n j^{1024} \left\lfloor\frac1j + \frac{n-i}{n}\right\rfloor.
+\end{equation*}
+Let $M=2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13$ and let $N = f{\left(M^{15}\right)} - f{\left(M^{15}-1\right)}$. Let $k$ be the largest non-negative integer such that $2^k$ divides $N$. What is the remainder when $2^k$ is divided by $5^7$?
+
+Budget: 996.00 seconds | Deadline: 1771520593.53
+
+
+Attempt 4 produced Python Error:
+
+Cell in <cell line: 0>()
+     13 
+     14 for a in [1,2,4,8,16]:
+---> 15     print(a, compute_v2(a))
+Cell in compute_v2(a)
+     10         S = sum(p**(a*e) for e in range(0,16))
+     11         N *= S
+---> 12     return v2(N)
+     13 
+     14 for a in [1,2,4,8,16]:
+Cell in v2(x)
+      2 
+      3 def v2(x):
+----> 4     return sp.valuation(x, 2)
+      5 
+      6 def compute_v2(a):
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Cell in <cell line: 0>()
+     12 N_val = sigma_k_of_powered(primes, 15, 1024)
+     13 # compute v2
+---> 14 v2 = sp.valuation(N_val, 2)
+     15 v2
+AttributeError: module 'sympy' has no attribute 'valuation'
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.

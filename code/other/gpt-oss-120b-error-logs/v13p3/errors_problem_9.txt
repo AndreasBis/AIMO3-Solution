@@ -1,0 +1,65 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771409712.87
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 1 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 7 produced Python Error:
+
+NameError: name 'A' is not defined
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 8 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.

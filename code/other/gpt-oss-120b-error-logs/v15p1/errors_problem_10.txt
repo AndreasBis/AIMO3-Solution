@@ -1,0 +1,176 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771639399.40
+
+
+Attempt 8 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 6 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+TypeError: f_of_n() got an unexpected keyword argument 'factor'
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'cand_less' is not defined
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'compute_candidate_S' is not defined
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 3 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'crt'
+
+
+Attempt 5 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 7 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 7 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+KeyError: 308
+
+
+Attempt 5 produced Python Error:
+
+KeyError: 308
+
+
+Attempt 6 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'crt'
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 2 produced Python Error:
+
+g(0) = 0.6666666666666666
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+
+Attempt 4 produced Python Error:
+
+TypeError: unsupported operand type(s) for ** or pow(): 'int', 'Zero', 'int'
+
+
+Attempt 4 produced Python Error:
+
+2 1
+3 0
+4 1
+5 1
+AttributeError: module 'sympy' has no attribute 'crt'
+
+
+Attempt 1 produced Python Error:
+
+OverflowError: int too large to convert to float
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 5 produced Python Error:
+
+NameError: name 'M_mod' is not defined
+
+
+Attempt 5 produced Python Error:
+
+NameError: name 'compute_M_mod_func' is not defined
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'crt'
+
+
+Attempt 5 produced Python Error:
+
+NameError: name 'M_mod_func2' is not defined

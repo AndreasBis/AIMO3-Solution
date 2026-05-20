@@ -1,0 +1,247 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771669774.46
+
+
+Attempt 4 produced Python Error:
+
+1 A = math.factorial(2025)
+----> 2 len(str(A))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 4 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+1 import math, sys, sympy as sp, itertools, collections, fractions, decimal, random, math, sys, itertools, sympy as sp
+      2 A = math.factorial(2025)
+----> 3 print(len(str(A)))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 5 produced Python Error:
+
+11 
+     12 M4, vals4 = compute_f_Mc_general(4, maxc=30)
+---> 13 M4, vals4[:10]
+KeyError: slice(None, 10, None)
+
+
+Attempt 2 produced Python Error:
+
+1 import math, sys, time, sympy as sp, itertools, collections, fractions, decimal, math, random, json, os, typing, statistics, string, hashlib, bisect, heapq, pprint, numbers, itertools, fractions, math
+      2 A = math.factorial(2025)
+----> 3 len(str(A))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 2 produced Python Error:
+
+1 A = math.factorial(2025)
+----> 2 print(len(str(A)))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 8 produced Python Error:
+
+1 diffs = {c:vals5[c] - (2*243//3) for c in range(0,51)}
+----> 2 diffs[:10]
+KeyError: slice(None, 10, None)
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+25             print(f"k={k}, c={c}, f={f_val}, cand={Ncand}")
+     26 
+---> 27 test_decrease(5, range(0,30))
+Cell in test_decrease(k, cs)
+     21     for c in cs:
+     22         f_val = f_brutal_until(M + c)
+---> 23         Ncand = candidate_N_decrease(M,c)
+     24         if Ncand != f_val:
+     25             print(f"k={k}, c={c}, f={f_val}, cand={Ncand}")
+Cell in candidate_N_decrease(M, c)
+      9             continue
+     10         e = c + 3*k
+---> 11         if N % e == 0:
+     12             # ensure e distinct from N and N/2
+     13             if e != N and e != N//2:
+ZeroDivisionError: integer modulo by zero
+
+
+Attempt 5 produced Python Error:
+
+11 
+     12 # compute for k=9 (M=19683) up to c=200
+---> 13 signs9 = delta_signs(9, 200)
+     14 # categorize
+     15 neg = [c for c, d in signs9.items() if d < 0]
+Cell in delta_signs(k, maxc)
+      6         n = M + c
+      7         fval = f_brutal_until(n)
+----> 8         delta = fval - base
+      9         signs[c] = delta
+     10     return signs
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+1 g_vals_check = [
+----> 2     Fraction(floor_g0, A),
+      3     Fraction(floor_large_c(q1,5), A),
+      4     Fraction(floor_small_c(11), A),
+      5     Fraction(floor_small_c(q3), A),
+TypeError: both arguments should be Rational instances
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+16 for L in [5,6,7,8,9,10,12,13,14,15,16,17,18,20]:
+     17     direct = pow(3, K, L)
+---> 18     fast = M_mod_fast(L)
+     19     print(L, direct == fast)
+Cell in M_mod_fast(L)
+     11     exp = K % phi
+     12     # note: need to ensure exponent >=0
+---> 13     return pow(3, exp, L)
+     14 
+     15 # test compare to direct for some L
+TypeError: unsupported operand type(s) for ** or pow(): 'int', 'Zero', 'int'
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+22 
+     23 # Test for each c small
+---> 24 for c in c_small_vals:
+     25     best = find_best_pair(N_mod_func_factory(c))
+     26     print("c", c, "best", best[1:4] if best else None)
+NameError: name 'c_small_vals' is not defined. Ensure you define every variable and helper function before use.
+
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+45 g_vals = []
+     46 # g(0)
+---> 47 g_vals.append(compute_g(0))
+     48 # g(4M)
+     49 g_vals.append(compute_g(4*pow(3, factorial_2025), c_is_multiple=True, mult_factor=4))
+Cell in compute_g(c, c_is_multiple, mult_factor)
+     40         ceil_val = (F * num + den - 1)//den
+     41         floor_term = -ceil_val
+---> 42         return Fraction(F + floor_term, F)
+     43 
+     44 # Compute g values
+UnboundLocalError: cannot access local variable 'Fraction' where it is not associated with a value
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.
+
+
+Attempt 3 produced Python Error:
+
+4 total_numer = total.numerator
+      5 total_denom = total.denominator
+----> 6 print(len(str(total_numer)), len(str(total_denom)))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion. Use logarithms to count digits or modular arithmetic to check equality.

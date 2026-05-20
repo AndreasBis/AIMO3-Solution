@@ -1,0 +1,156 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771536171.89
+
+
+Attempt 4 produced Python Error:
+
+KeyError: 1/x
+During handling of the above exception, another exception occurred:
+105         degsum=sum(sp.totient(m) for m in subset)
+    106         if degsum>8: continue
+--> 107         if test_subset(a, subset):
+    108             total+=1
+    109             valid_subsets.append((a, subset))
+Cell in test_subset(group_a, subset)
+     51     B = sp.expand(quotient.subs(x, 1/x))
+     52     # Convert B into dict of exponent -> coeff
+---> 53     terms = sp.Poly(B, x).as_dict()
+     54     # terms map (exp,) -> coeff, but there may be negative exponents? poly doesn't support negative exponents.
+     55     # We need to represent B as Laurent: it might have positive powers of x after substitution (since negative exponent become positive?). Actually substituting 1/x yields negative exponents.
+PolynomialError: 1/x contains an element of the set of generators.
+
+
+Attempt 8 produced Python Error:
+
+16     prod = Poly(1, x)
+     17     for name in combo:
+---> 18         prod = expand(prod * factor_dict[name][0]).as_poly(x)
+     19     # shift t from 0 to 8-D
+     20     for t in range(0, 8 - D + 1):
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 6 produced Python Error:
+
+64 cnt=0
+     65 for p in Apolys:
+---> 66     if not is_shifty(p):
+     67         print("fail", p)
+     68     else:
+Cell in is_shifty(poly)
+      5     # get terms dict
+      6     terms = poly.as_coefficients_dict()
+----> 7     exps = [int(exp) for exp in terms.keys() if terms[exp]!=0]
+      8     if not exps:
+      9         return False
+TypeError: Cannot convert symbols to int
+
+
+Attempt 5 produced Python Error:
+
+KeyError: 1/z
+During handling of the above exception, another exception occurred:
+63                 for e in range(0, 9-deg):
+     64                     alpha_poly = construct_alpha(subset, e, sign)
+---> 65                     if not test_alpha_correct(alpha_poly):
+     66                         print("fail", subset, deg, sign, e)
+     67                         raise SystemExit
+Cell in test_alpha_correct(alpha_poly)
+     23             # Build beta_rev coefficients dictionary
+     24             D = sign * z**(-e) * q.as_expr()
+---> 25             D_poly = Poly(D, z, domain=sp.ZZ)  # this handles Laurent? Might treat negative exponents as part of polynomial? Sympy may treat as negative power as part of rational function; but we can compute dict manually.
+     26             # Build dict of D coefficients with exponents (may be negative)
+     27             D_dict = {}
+PolynomialError: 1/z contains an element of the set of generators.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+78 bad = []
+     79 for a in alphas:
+---> 80     if not is_shifty(a):
+     81         bad.append(a)
+     82 len(bad)
+Cell in is_shifty(alpha_poly)
+     64         coeff, exp = term.as_coeff_exponent(x)
+     65         # exp may be integer
+---> 66         beta_dict[int(exp)] = int(coeff)
+     67     # verify that convolve(alpha, beta) matches.
+     68     conv = convolve(a_dict, beta_dict)
+TypeError: Cannot convert symbols to int
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+1 alpha = -x**4 + x**2 - 1
+----> 2 is_shifty(alpha)
+Cell in is_shifty(alpha_poly)
+     64         coeff, exp = term.as_coeff_exponent(x)
+     65         # exp may be integer
+---> 66         beta_dict[int(exp)] = int(coeff)
+     67     # verify that convolve(alpha, beta) matches.
+     68     conv = convolve(a_dict, beta_dict)
+TypeError: Cannot convert symbols to int
+
+
+Attempt 2 produced Python Error:
+
+41 
+     42 # test on all alphas
+---> 43 bad = [a for a in alphas if not is_shifty(a)]
+     44 len(bad)
+Cell in is_shifty(alpha_poly)
+      1 def is_shifty(alpha_poly):
+----> 2     a_dict = alpha_dict(alpha_poly)
+      3     exps = [i for i,val in a_dict.items() if val!=0]
+      4     if not exps:
+      5         return False
+TypeError: 'dict' object is not callable
+
+
+Attempt 1 produced Python Error:
+
+52 results = []
+     53 for alpha in samples:
+---> 54     results.append(is_shifty_bruteforce(alpha))
+     55 results
+Cell in is_shifty_bruteforce(alpha)
+     10     import sympy as sp
+     11     M_mat = sp.Matrix(M)
+---> 12     S, U, V = M_mat.smith_normal_form()
+     13     # S is diagonal diag(d1,...,dr,0,...)
+     14     # For each y, we can check if U*y is divisible by corresponding d_i.
+AttributeError: 'MutableDenseMatrix' object has no attribute 'smith_normal_form'

@@ -1,0 +1,370 @@
+(641659) Let $ABC$ be a triangle with $AB \neq AC$, circumcircle $\Omega$, and incircle $\omega$. Let the contact points of $\omega$ with $BC$, $CA$, and $AB$ be $D$, $E$, and $F$, respectively. Let the circumcircle of $AFE$ meet $\Omega$ at $K$ and let the reflection of $K$ in $EF$ be $K'$. Let $N$ denote the foot of the perpendicular from $D$ to $EF$. The circle tangent to line $BN$ and passing through $B$ and $K$ intersects $BC$ again at $T \neq B$. 
+    
+Let sequence $(F_n)_{n \geq 0}$ be defined by $F_0 = 0$, $F_1 = 1$ and for $n \geq 2$, $F_n = F_{n-1} + F_{n-2}$. Call $ABC$ $n$\emph{-tastic} if $BD = F_n$, $CD = F_{n+1}$, and $KNK'B$ is cyclic. Across all $n$-tastic triangles, let $a_n$ denote the maximum possible value of $\frac{CT \cdot NB}{BT \cdot NE}$. Let $\alpha$ denote the smallest real number such that for all sufficiently large $n$, $a_{2n} < \alpha$. Given that $\alpha = p + \sqrt{q}$ for rationals $p$ and $q$, what is the remainder when $\left\lfloor p^{q^p} \right\rfloor$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771535702.16
+
+
+Attempt 2 produced Python Error:
+
+113 
+    114 # test for n=5 with some r
+--> 115 res = geometry_values(5, 2)
+    116 res['ratio'], res['cyclic']
+    117 
+Cell in geometry_values(n, r)
+    102     # Determine circle passing through B, K, N; see if K' lies on it.
+    103     circle_BKN = sp.Circle(B, K, N)
+--> 104     cyclic = circle_BKN.distance(Kprime) < 1e-10  # numeric tolerance? Use equality?
+    105     # Instead symbolic test: Kprime lies on circle equation.
+    106     cyclic = sp.simplify(circle_BKN.center.distance(Kprime) - circle_BKN.radius) == 0
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 2 produced Python Error:
+
+----> 1 solF = sp.solve([x**2 + y**2 - r**2, (B.x - x)*x + (B.y - y)*y], (x,y), dict=True)
+      2 solF
+NameError: name 'x' is not defined
+
+
+Attempt 2 produced Python Error:
+
+1 x,y = sp.symbols('x y')
+----> 2 solF = sp.solve([x**2 + y**2 - r**2, (B.x - x)*x + (B.y - y)*y], (x,y), dict=True)
+      3 solF
+NameError: name 'r' is not defined
+
+
+Attempt 2 produced Python Error:
+
+1 r = sp.symbols('r', positive=True)
+----> 2 B = sp.Point(-Fn, -r)
+      3 solF = sp.solve([x**2 + y**2 - r**2, (B.x - x)*x + (B.y - y)*y], (x,y), dict=True)
+      4 solF
+NameError: name 'Fn' is not defined
+
+
+Attempt 1 produced Python Error:
+
+7     return data
+      8 
+----> 9 data_test = test_n_s(2, 4)
+Cell in test_n_s(n, s)
+      1 def test_n_s(n, s):
+----> 2     data = triangle_data(n, s)
+      3     print("n", n, "s", s)
+      4     print("b", data['b'], "c", data['c'])
+      5     print("ratio", sp.N(data['ratio']))
+Cell in triangle_data(n, s)
+     68     circ_BNK = sp.Circle(B, N_pt, K_pt)
+     69     # distance from center to Kprime should equal radius
+---> 70     cyclic_residual = sp.simplify(circ_BNK.distance(Kprime_pt) - circ_BNK.radius)
+     71     # compute T: circle through B, K tangent to BN at B
+     72     # line BN
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 3 produced Python Error:
+
+Testing n=2
+125 print("Testing n=2")
+    126 s_guess = 5  # a=3, need >3
+--> 127 print(residual_for_s(2, 5))
+Cell in residual_for_s(n, s_val)
+     28     # formula: projection = C + ((I-C).dot(v) / v.dot(v)) * v where v = A-C
+     29     v_CA = A - C
+---> 30     t_E = ((I - C).dot(v_CA)) / (v_CA.dot(v_CA))
+     31     E = C + t_E * v_CA
+     32     v_AB = B - A
+AttributeError: 'matrix' object has no attribute 'dot'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+s_root 4.2
+1 s_root = find_root_s(2)
+      2 print("s_root", s_root)
+----> 3 ratio = compute_ratio_for_triangle(2, s_root)
+      4 print("ratio", ratio)
+NameError: name 'compute_ratio_for_triangle' is not defined
+
+
+Attempt 6 produced Python Error:
+
+49 
+     50 # Test numeric for n=4 using a particular r (choose some value, say r=2)
+---> 51 data_test = compute_K(3,5)
+     52 data_test_numeric = {k: v.subs({sp.symbols('r'):2}) for k,v in data_test.items()}
+     53 data_test_numeric['A'], data_test_numeric['F'], data_test_numeric['E'], data_test_numeric['K']
+TypeError: compute_K() missing 2 required positional arguments: 'a' and 'r'
+
+
+Attempt 5 produced Python Error:
+
+3 
+      4 for rr in [0.001, 0.01, 0.05, 0.1, 0.15, 0.18, 0.19, 0.2, 0.22, 0.3]:
+----> 5     print(rr, f(rr))
+Cell in f(r)
+      1 def f(r):
+----> 2     return geometry(r)[0]
+      3 
+      4 for rr in [0.001, 0.01, 0.05, 0.1, 0.15, 0.18, 0.19, 0.2, 0.22, 0.3]:
+      5     print(rr, f(rr))
+Cell in geometry(r)
+     48         return (ux, uy)
+     49     O1 = circumcenter((xA,yA),(0.0,0.0),(L,0.0))
+---> 50     O2 = circumcenter((xA,yA),(xF,yF),(xE,yE))
+     51     # Radii
+     52     R1 = mp.sqrt((xA-O1[0])**2 + (yA-O1[1])**2)
+Cell in circumcenter(p1, p2, p3)
+     43         d = 2*(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2))
+     44         if abs(d) < 1e-12:
+---> 45             raise ValueError("colinear")
+     46         ux = ((x1**2 + y1**2)*(y2 - y3) + (x2**2 + y2**2)*(y3 - y1) + (x3**2 + y3**2)*(y1 - y2))/d
+     47         uy = ((x1**2 + y1**2)*(x3 - x2) + (x2**2 + y2**2)*(x1 - x3) + (x3**2 + y3**2)*(x2 - x1))/d
+ValueError: colinear
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+58     return K_candidate, A, B, C, E, F
+     59 
+---> 60 K_candidate, A,B,C,E,F = compute_K(5,8,13+0.01)
+     61 print("K:", K_candidate)
+     62 print("A:", A)
+Cell in compute_K(Fn, Fnp1, s)
+     24     F = proj(A,B,I)
+     25     # circumcenters
+---> 26     O_ABC = circumcenter(A,B,C)
+     27     O_AFE = circumcenter(A,F,E)
+     28     # circle intersection
+NameError: name 'circumcenter' is not defined
+
+
+Attempt 7 produced Python Error:
+
+1 for off in [1e-6, 1e-5, 1e-4, 1e-3, 1e-2]:
+----> 2     val = diff_numeric(5,8,13+off)
+      3     print(off, val)
+Cell in diff_numeric(Fn, Fnp1, s)
+     55     # get radius as distance to any point
+     56     R_ABC = math.dist(O_ABC, A)
+---> 57     R_AFE = math.dist(O_AFE, A)
+     58     # intersection of circles: compute K (other than A)
+     59     # Solve using circle-circle intersection formulas
+TypeError: 'NoneType' object is not iterable
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+4 
+      5 for r in [0.2,0.5,0.8]:
+----> 6     print(r, test_isosceles(r))
+Cell in test_isosceles(r)
+      1 def test_isosceles(r):
+----> 2     data = geometry_values_fast(1, r)
+      3     return data['cyclic'], data['det']
+      4 
+      5 for r in [0.2,0.5,0.8]:
+Cell in geometry_values_fast(n, r_val)
+     28     # In numeric case, they will be distinct.
+     29     if inters[0].distance(A) < 1e-9:
+---> 30         K = inters[1]
+     31     else:
+     32         K = inters[0]
+IndexError: list index out of range
+
+
+Attempt 6 produced Python Error:
+
+35 
+     36 for n in [2,4,6,8,10,12]:
+---> 37     R, r_val = compute_R_for_n(n)
+     38     print(n, R, r_val)
+Cell in compute_R_for_n(n)
+     30 def compute_R_for_n(n):
+     31     p = fibonacci(n); q = fibonacci(n+1)
+---> 32     r = find_root_for_n(n)
+     33     res = geometry_numeric(p,q,r)
+     34     return res['R'], r
+Cell in find_root_for_n(n)
+     15         f_high = cyclic_function(p,q,high)
+     16         if high > 1e6:
+---> 17             raise ValueError("no sign change found")
+     18     # now bisection
+     19     for i in range(80):
+ValueError: no sign change found
+
+
+Attempt 8 produced Python Error:
+
+6     return float(dist)  # zero if lies on circle
+      7 
+----> 8 print(check_cyc(2, 2.0))
+Cell in check_cyc(n, yA)
+      3     B, K, N = data["B"], data["K"], data["N"]
+      4     circle = sp.Circle(B, K, N)
+----> 5     dist = circle.distance(data["Kprime"])
+      6     return float(dist)  # zero if lies on circle
+      7 
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 2 produced Python Error:
+
+32     return intervals, vals[:10]
+     33 
+---> 34 intervals, sample = find_root_r(5)
+     35 intervals[:5]
+Cell in find_root_r(n)
+     14     left = 1e-6
+     15     right = a*0.999
+---> 16     f_left = f(left)
+     17     f_right = f(right)
+     18     # print signs
+Cell in <lambda>(r)
+      9     a = fib[n]
+     10     # define function
+---> 11     f = lambda r: det_cycle(n, r)
+     12     # use bisection or find root in (0, a)
+     13     # Check sign at endpoints
+Cell in det_cycle(n, r_val)
+      1 def det_cycle(n, r_val):
+----> 2     data = geometry_values_fast(n, r_val)
+      3     return data['det']
+      4 
+      5 def find_root_r(n):
+Cell in geometry_values_fast(n, r_val)
+     27     # Choose K not equal to A
+     28     # In numeric case, they will be distinct.
+---> 29     if inters[0].distance(A) < 1e-9:
+     30         K = inters[1]
+     31     else:
+IndexError: list index out of range
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+165 
+    166 # test for n=5
+--> 167 ratio, s_root, extra = find_root_and_ratio(5)
+    168 ratio, s_root
+Cell in find_root_and_ratio(n)
+    120     s_low = a + 1e-6
+    121     # try increasing s until sign change
+--> 122     det_low, _, _ = geometry_ratio2_compute(s_low, n)
+    123     # Might be positive or negative; we will scan upward
+    124     s = s_low
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 2 produced Python Error:
+
+17     return best
+     18 
+---> 19 best4 = find_r_cyclic_and_ratio(4)
+     20 best4
+Cell in find_r_cyclic_and_ratio(n, steps)
+      7     best = None
+      8     for r in np.linspace(0.001, a*0.999, steps):
+----> 9         result = compute_ratio_and_cyclic(n, r)
+     10         if result is None:
+     11             continue
+Cell in compute_ratio_and_cyclic(n, r)
+     98     # circumcenter of AEF
+     99     O2 = circumcenter(A, E, F)
+--> 100     R2 = np.linalg.norm(A - O2)
+    101     # Intersections of circles
+    102     inters = circle_intersections(O, R, O2, R2)
+TypeError: unsupported operand type(s) for -: 'float' and 'NoneType'
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.

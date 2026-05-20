@@ -1,0 +1,79 @@
+(42d360) On a blackboard, Ken starts off by writing a positive integer $n$ and then applies the following move until he first reaches $1$. Given that the number on the board is $m$, he chooses a base $b$, where $2 \leq b \leq m$, and considers the unique base-$b$ representation of $m$,
+\begin{equation*}
+    m = \sum_{k = 0}^\infty a_k \cdot b^k
+\end{equation*}
+where $a_k$ are non-negative integers and $0 \leq a_k < b$ for each $k$. Ken then erases $m$ on the blackboard and replaces it with $\sum\limits_{k = 0}^\infty a_k$.
+
+Across all choices of $1 \leq n \leq 10^{10^5}$, the largest possible number of moves Ken could make is $M$. What is the remainder when $M$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771521974.00
+
+
+Attempt 3 produced Python Error:
+
+Cell in <cell line: 0>()
+      2 
+      3 f = lambda t: mp.log(t) - (t-1)/t
+----> 4 mp.findroot(f, 2.5)
+ValueError: Could not find root within given tolerance. (7.17626203470790103545062650963837133690200633250138979472424539172067e-29 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+      2 
+      3 f=lambda b: mp.log(b) - (1-1/b)
+----> 4 root= mp.findroot(f, 3) # guess near 3
+      5 root
+ValueError: Could not find root within given tolerance. (2.252505489146607617934700094544297693231768133900086614548049720608424e-32 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 root= mp.findroot(f, (2,10))
+      2 root
+ValueError: Could not find root within given tolerance. (3.333735198664414589637924770301547514901338019239640676711317770998493e-25 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 import mpmath as mp
+      2 f = lambda t: 1 - mp.e**(-t) - t
+----> 3 mp.findroot(f, 0.5)
+ValueError: Could not find root within given tolerance. (7.761662423471357424900325734319086231900748777051675354708903722814325e-28 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.

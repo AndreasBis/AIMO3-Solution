@@ -1,0 +1,211 @@
+(641659) Let $ABC$ be a triangle with $AB \neq AC$, circumcircle $\Omega$, and incircle $\omega$. Let the contact points of $\omega$ with $BC$, $CA$, and $AB$ be $D$, $E$, and $F$, respectively. Let the circumcircle of $AFE$ meet $\Omega$ at $K$ and let the reflection of $K$ in $EF$ be $K'$. Let $N$ denote the foot of the perpendicular from $D$ to $EF$. The circle tangent to line $BN$ and passing through $B$ and $K$ intersects $BC$ again at $T \neq B$. 
+    
+Let sequence $(F_n)_{n \geq 0}$ be defined by $F_0 = 0$, $F_1 = 1$ and for $n \geq 2$, $F_n = F_{n-1} + F_{n-2}$. Call $ABC$ $n$\emph{-tastic} if $BD = F_n$, $CD = F_{n+1}$, and $KNK'B$ is cyclic. Across all $n$-tastic triangles, let $a_n$ denote the maximum possible value of $\frac{CT \cdot NB}{BT \cdot NE}$. Let $\alpha$ denote the smallest real number such that for all sufficiently large $n$, $a_{2n} < \alpha$. Given that $\alpha = p + \sqrt{q}$ for rationals $p$ and $q$, what is the remainder when $\left\lfloor p^{q^p} \right\rfloor$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771348776.76
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: 'Circle' object has no attribute 'is_point_on_circumference'
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 4 produced Python Error:
+
+n 5 F 5 8 13
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: 'matrix' object has no attribute 'dot'
+
+
+Attempt 4 produced Python Error:
+
+2 3 3.000000000000003
+4 8 4.000000000000005
+6 21 4.199999999999978
+8 55 4.230769230769216
+10 144 4.235294117647011
+12 377 4.235955056179781
+14 987 4.236051502145901
+16 2584 4.236065573770444
+18 6765 None
+20 17711 None
+22 46368 None
+24 121393 None
+26 317811 None
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 6 produced Python Error:
+
+2 3 5
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 4 produced Python Error:
+
+2 3 3.0000000000001354
+4 8 4.000000000000625
+6 21 4.200000000000276
+8 55 4.230769230769143
+10 144 4.235294117647065
+12 377 4.23595505617983
+14 987 4.236051502145945
+16 2584 4.236065573770536
+18 6765 4.236067626800202
+20 17711 4.236067926333424
+22 46368 4.2360679700347195
+n 24 root not found
+n 26 root not found
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 3 produced Python Error:
+
+ValueError: No sign change
+
+
+Attempt 6 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 5 produced Python Error:
+
+13 4.236111111111112064445510203855181956553885548944647894385099686
+14 4.236051502145923487337413701206084130751649367118934216002302703
+15 4.236074270557031131712304607971614632869723382964752460154610788
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 4 produced Python Error:
+
+n 24 root 146401.33334291825
+ratio 4.236067976410663
+n 26 root 383283.6666703301
+ratio 4.236067977340834
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 6 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 6 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 6 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Collinear
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Collinear
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Collinear
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Collinear
+
+
+Attempt 1 produced Python Error:
+
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 1 produced Python Error:
+
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 6 produced Python Error:
+
+3 5.000000000000093
+5 4.333333333333337
+7 4.249999999999945
+9 4.238095238095276
+11 4.236363636363621
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 8 produced Python Error:
+
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'
+
+
+Attempt 1 produced Python Error:
+
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Collinear
+
+
+Attempt 1 produced Python Error:
+
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'ratio_given_t' is not defined
+
+
+Attempt 3 produced Python Error:
+
+Error: name 'ratio_given_t' is not defined
+
+
+
+Attempt 1 produced Python Error:
+
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'ratio_given_t' is not defined
+
+
+Attempt 5 produced Python Error:
+
+NameError: name 'K' is not defined
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'ratio_given_t' is not defined
+
+
+Attempt 1 produced Python Error:
+
+AttributeError: 'NoneType' object has no attribute 'center'

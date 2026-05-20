@@ -1,0 +1,57 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771348085.74
+
+
+Attempt 6 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/sympy/core/relational.py in __bool__(self)
+    514 
+    515     def __bool__(self):
+--> 516         raise TypeError("cannot determine truth value of Relational")
+    517 
+    518     def _eval_as_set(self):
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 3 produced Python Error:
+
+IndexError: list index out of range
+
+
+Attempt 2 produced Python Error:
+
+NameError: name 'x' is not defined
+
+
+Attempt 6 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/sympy/core/relational.py in __bool__(self)
+    514 
+    515     def __bool__(self):
+--> 516         raise TypeError("cannot determine truth value of Relational")
+    517 
+    518     def _eval_as_set(self):
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 1 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npoly'

@@ -1,0 +1,39 @@
+(92ba6a) Alice and Bob are each holding some integer number of sweets. Alice says to Bob: ``If we each added the number of sweets we're holding to our (positive integer) age, my answer would be double yours. If we took the product, then my answer would be four times yours.'' Bob replies: ``Why don't you give me five of your sweets because then both our sum and product would be equal.'' What is the product of Alice and Bob's ages?
+
+Budget: 996.00 seconds | Deadline: 1771342676.91
+
+
+Attempt 6 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------SympifyError                              Traceback (most recent call last)/tmp/ipykernel_769/1230504774.py in <cell line: 0>()
+      5 eq3 = sp.Eq(A + x, B + y + 10)
+      6 eq4 = sp.Eq(A*(x-5), B*(y+5))
+----> 7 solutions = sp.diophantine([eq1, eq2, eq3, eq4])
+      8 solutions
+/usr/local/lib/python3.12/dist-packages/sympy/solvers/diophantine/diophantine.py in diophantine(eq, param, syms, permute)
+   1320     """
+   1321 
+-> 1322     eq = _sympify(eq)
+   1323 
+   1324     if isinstance(eq, Eq):
+/usr/local/lib/python3.12/dist-packages/sympy/core/sympify.py in _sympify(a)
+    512 
+    513     """
+--> 514     return sympify(a, strict=True)
+    515 
+    516 
+/usr/local/lib/python3.12/dist-packages/sympy/core/sympify.py in sympify(a, locals, convert_xor, strict, rational, evaluate)
+    452 
+    453     if strict:
+--> 454         raise SympifyError(a)
+    455 
+    456     if iterable(a):
+SympifyError: SympifyError: [Eq(A + x, 2*B + 2*y), Eq(A*x, 4*B*y), Eq(A + x, B + y + 10), Eq(A*(x - 5), B*(y + 5))]
+
+Attempt 1 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds

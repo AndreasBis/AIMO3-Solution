@@ -1,0 +1,292 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771520335.61
+
+
+Attempt 4 produced Python Error:
+
+Cell in <cell line: 0>()
+     19                     poly = None
+     20                     break
+---> 21                 poly = sp.expand(poly * sp.npoly.cyclotomic_poly(n, x))
+     22         if poly is not None:
+     23             # degree is deg_sum (should match poly.degree())
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 8 produced Python Error:
+
+Cell in <cell line: 0>()
+      8     deg = sp.totient(2*m)
+      9     if deg <= 8:
+---> 10         vals.append((m, deg, cyclotomic_poly(2*m)))
+     11 vals[:20], len(vals)
+Cell in cyclotomic_poly(n)
+      1 import sympy as sp, math, itertools, sys, collections, functools, fractions, decimal, json, os, random, typing, itertools, math, sympy
+      2 def cyclotomic_poly(n):
+----> 3     return sp.npoly.cyclotomic_poly(n, sp.Symbol('x'), polys=True)  # returns Poly
+      4 
+      5 # Let's list phi(2m) <=8 for m >=1.
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 M=sp.Matrix([[1,2],[3,4],[5,6]])
+----> 2 U,D,V=M.smith_normal_form()
+      3 M.shape, D.shape
+AttributeError: 'MutableDenseMatrix' object has no attribute 'smith_normal_form'
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 sorted_polys = sorted(all_B, key=lambda p: (sp.degree(p, x), sp.expand(p).as_ordered_terms()))
+      2 sorted_polys[:30]
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 from sympy.matrices.normalforms import smith_normal_form
+----> 2 U,D,V=smith_normal_form(M)
+      3 U.shape, D.shape, V.shape
+ValueError: too many values to unpack (expected 3)
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+     24 # test for small d
+     25 for d in range(1,7):
+---> 26     divs = divisors_of_one_plus_xd(d)
+     27     print(d, len(divs))
+Cell in divisors_of_one_plus_xd(d)
+     10 def divisors_of_one_plus_xd(d):
+     11     poly = sp.expand(1 + x**d)
+---> 12     facs = get_irreducible_factors(poly)
+     13     # generate all subsets of factors to produce divisors (including empty set -> 1)
+     14     divisors = set()
+Cell in get_irreducible_factors(poly)
+      6     # ensure each factor is monic? factor may have leading coefficient not 1.
+      7     # Sympy ensures monic factor maybe?
+----> 8     return [sp.expand(factor) for factor, exp in facs for _ in range(exp)]
+      9 
+     10 def divisors_of_one_plus_xd(d):
+AttributeError: 'Poly' object has no attribute 'expand'
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 from sympy.matrices.normalforms import smith_normal_form
+----> 2 U,D,V = smith_normal_form(M, calc_transform=True)
+      3 U.shape, D.shape, V.shape
+TypeError: smith_normal_form() got an unexpected keyword argument 'calc_transform'
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 def poly_degree(p):
+      2     return sp.Poly(p, x).degree()
+----> 3 sorted_polys = sorted(p_set, key=lambda p: (poly_degree(p), sp.Poly(p,x).as_expr()))
+      4 for p in sorted_polys:
+      5     print(poly_degree(p), p)
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+     14     for subset in itertools.combinations(e_vals, r):
+     15         p = product_of_subset(subset)
+---> 16         coeffs = p.as_poly().all_coeffs()
+     17         maxc = max(abs(int(c)) for c in coeffs)
+     18         if maxc>maxcoeff:
+AttributeError: 'int' object has no attribute 'as_poly'
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+      4     deg = sp.degree(B, x)
+      5     # coefficients of B as dict exponent -> coeff
+----> 6     coeffs_B = {int(exp): int(coeff) for exp, coeff in sp.Poly(B, x).as_dict().items()}
+      7     for a in range(0, 9 - deg):
+      8         # shift: multiply by x^a
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'tuple'
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Cell in <cell line: 0>()
+      8             A = sp.expand(x**c * D)
+      9             # coefficients dictionary
+---> 10             coeffs = A.all_coeffs()
+     11             # leading coefficient is 1 (monic)
+     12             max_c = max(abs(int(coef)) for coef in coeffs)
+AttributeError: 'One' object has no attribute 'all_coeffs'
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+      3     return sp.npoly.cyclotomic_poly(n, x)
+      4 
+----> 5 c4 = cyclotomic(4); c12=cyclotomic(12); c20=cyclotomic(20)
+      6 c4, c12, c20
+Cell in cyclotomic(n)
+      1 # Build cyclotomic expressions for these indices
+      2 def cyclotomic(n):
+----> 3     return sp.npoly.cyclotomic_poly(n, x)
+      4 
+      5 c4 = cyclotomic(4); c12=cyclotomic(12); c20=cyclotomic(20)
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 all(is_shifty_by_construction(a) for a in alphas)
+Cell in <genexpr>(.0)
+----> 1 all(is_shifty_by_construction(a) for a in alphas)
+Cell in is_shifty_by_construction(alpha)
+     18     # compute d as lcm of e for which Φ_{2e} divides F. Identify e's by factoring.
+     19     # factor F over integer polynomials
+---> 20     fac = sp.factorint(F.as_expr(), modulus=None)  # returns dict of factors maybe
+     21     # factorint returns integer factorization; not what we need.
+     22     # Let's factor polynomial over Z
+TypeError: factorint() got an unexpected keyword argument 'modulus'
+
+
+Attempt 2 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 all(is_shifty(a) for a in alpha_list)
+Cell in <genexpr>(.0)
+----> 1 all(is_shifty(a) for a in alpha_list)
+Cell in is_shifty(alpha_coeffs)
+     13     # Check factorization condition
+     14     # factor D
+---> 15     factors = sp.factorint(D, modulus=None)  # not for poly; maybe use sp.Poly factor
+     16     # Better: get irreducible factors over ZZ:
+     17     fac = sp.factor(D, modulus=None)  # returns expression product
+TypeError: factorint() got an unexpected keyword argument 'modulus'
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 cyclo = {m: cyclotomic_poly(m) for m in candidates}
+      2 cyclo
+Cell in cyclotomic_poly(m)
+      1 # compute cyclotomic polynomials up to some m
+      2 def cyclotomic_poly(m):
+----> 3     return sp.npolycyclotomic(m, x)
+      4 
+      5 # list m up to maybe 100 where phi(m) <= 8 and m even with m/2 odd
+AttributeError: module 'sympy' has no attribute 'npolycyclotomic'
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+KeyError: 1/(x**4 + 1)
+During handling of the above exception, another exception occurred:
+Cell in <cell line: 0>()
+     38 
+     39 # verify all alpha
+---> 40 all_ok = all(verify_alpha(alpha) for alpha in alpha_set)
+     41 all_ok
+Cell in <genexpr>(.0)
+     38 
+     39 # verify all alpha
+---> 40 all_ok = all(verify_alpha(alpha) for alpha in alpha_set)
+     41 all_ok
+Cell in verify_alpha(alpha_tuple)
+     26 
+     27 def verify_alpha(alpha_tuple):
+---> 28     a, l, beta = construct_beta(alpha_tuple)
+     29     # compute convolution (alpha*beta_rev) and check equals monomials at a and l
+     30     # Build beta_rev polynomial: reverse exponents? Actually we need gamma = beta (since we used representation A * gamma = x^a + x^l)
+Cell in construct_beta(alpha_tuple)
+     22     beta_poly = sp.expand(s * (1 + x**d) / B)
+     23     # get beta tuple (coeffs)
+---> 24     beta = tuple(beta_poly.expand().as_coefficients_dict().get(x**i, 0) for i in range(sp.degree(beta_poly, x)+1))
+     25     return a, a+d, beta_poly
+     26 
+PolynomialError: 1/(x**4 + 1) contains an element of the set of generators.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.

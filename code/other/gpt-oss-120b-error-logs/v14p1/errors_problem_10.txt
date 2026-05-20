@@ -1,0 +1,246 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771520670.24
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+     25 
+     26 fvals = compute_f_upto(60)
+---> 27 fvals[:10]
+KeyError: slice(None, 10, None)
+
+
+Attempt 8 produced Python Error:
+
+Cell in <cell line: 0>()
+     22 
+     23 res = f_small(60)
+---> 24 res[:10]
+KeyError: slice(None, 10, None)
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 equal_n = [n for n in range(6,301) if arr[n]==n]
+      2 equal_n
+KeyError: 201
+
+
+Attempt 4 produced Python Error:
+
+Cell in <cell line: 0>()
+      6     return data
+      7 
+----> 8 data = ratio_stats(200)
+      9 # compute average N/n for n up to 200
+     10 avg = sum(r[2] for r in data)/len(data)
+Cell in ratio_stats(limit)
+      3     for n in range(6, limit+1):
+      4         N = minimal_N_via_search(n)
+----> 5         data.append((n, N, N/n))
+      6     return data
+      7 
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+     25 for N in range(6,81):
+     26     vals[N]=f_brutal(N, max_X=5000)
+---> 27 vals[:10]
+KeyError: slice(None, 10, None)
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Cell in <cell line: 0>()
+      7 for S, fS in f_vals.items():
+      8     if S%2==1:
+----> 9         odd_ratios[S]=fS/S
+     10 sorted_ratios = sorted(odd_ratios.items(), key=lambda x:x[1])
+     11 sorted_ratios[:20]
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Cell in <cell line: 0>()
+     32     return mism
+     33 
+---> 34 mism2 = test_up_to2(200)
+     35 len(mism2), mism2[:20]
+Cell in test_up_to2(N)
+     27     for n in range(6,N+1):
+     28         f1 = f_bruteforce_fast(n)
+---> 29         f2 = f_by_candidate_fast2(n)
+     30         if f1 != f2:
+     31             mism.append((n,f1,f2))
+Cell in f_by_candidate_fast2(n)
+     15         s_needed = n - c
+     16         # proper divisors (excluding c)
+---> 17         proper = [d for d in divs_all[c] if d != c]
+     18         sset=set(proper)
+     19         for d in proper:
+IndexError: list index out of range
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+0 None
+Cell in <cell line: 0>()
+     13 
+     14 for c in c_vals:
+---> 15     print(c, smallest_odd_prime_factor(c))
+Cell in smallest_odd_prime_factor(num)
+      6         return None
+      7     # get smallest odd prime factor
+----> 8     n = abs(num)
+      9     for p in sp.primerange(3, n+1):
+     10         if n % p == 0:
+TypeError: bad operand type for abs(): 'NoneType'
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Cell in <cell line: 0>()
+     10 res_range = compute_f_range(10, 200)
+     11 # compute ratio f/M
+---> 12 ratios = {c: results/M for c, results in res_range.items()}
+     13 # find min, max
+     14 min_ratio = min(ratios.values())
+NameError: name 'M' is not defined
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Cell in <cell line: 0>()
+      3 
+      4 exp = math.factorial(2025)  # compute 2025! as integer
+----> 5 len(str(exp))  # number of digits
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 5 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 import math, sys, time, sympy as sp
+      2 K = math.factorial(2025)
+----> 3 len(str(K))
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.

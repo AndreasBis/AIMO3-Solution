@@ -1,0 +1,48 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771408724.89
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'det2' is not defined
+
+
+Attempt 2 produced Python Error:
+
+NameError: name 'eqs' is not defined
+
+
+Attempt 2 produced Python Error:
+
+NameError: name 'circ1' is not defined
+
+
+Attempt 6 produced Python Error:
+
+NameError: name 'inters' is not defined
+
+
+Attempt 6 produced Python Error:
+
+NameError: name 'X' is not defined
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: 'float' object has no attribute 'evalf'

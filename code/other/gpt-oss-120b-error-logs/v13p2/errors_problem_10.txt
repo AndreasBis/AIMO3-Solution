@@ -1,0 +1,142 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771349066.12
+
+
+Attempt 5 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 2 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 6 produced Python Error:
+
+KeyError: slice(None, 5, None)
+
+
+Attempt 8 produced Python Error:
+
+ValueError: math domain error
+
+
+Attempt 7 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'best_ratio_sum' is not defined
+
+
+Attempt 6 produced Python Error:
+
+TypeError: f_bruteforce_n() missing 1 required positional argument: 'Nmax'
+
+
+Attempt 5 produced Python Error:
+
+/usr/local/lib/python3.12/dist-packages/IPython/core/formatters.py in __call__(self, obj)
+    700                 type_pprinters=self.type_printers,
+    701                 deferred_pprinters=self.deferred_printers)
+--> 702             printer.pretty(obj)
+    703             printer.flush()
+    704             return stream.getvalue()
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    375                 if cls in self.type_pprinters:
+    376                     # printer registered in self.type_pprinters
+--> 377                     return self.type_pprinters[cls](obj, self, cycle)
+    378                 else:
+    379                     # deferred printer
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in inner(obj, p, cycle)
+    553                 p.text(',')
+    554                 p.breakable()
+--> 555             p.pretty(x)
+    556         if len(obj) == 1 and type(obj) is tuple:
+    557             # Special case for 1-item tuples.
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in pretty(self, obj)
+    375                 if cls in self.type_pprinters:
+    376                     # printer registered in self.type_pprinters
+--> 377                     return self.type_pprinters[cls](obj, self, cycle)
+    378                 else:
+    379                     # deferred printer
+/usr/local/lib/python3.12/dist-packages/IPython/lib/pretty.py in _repr_pprint(obj, p, cycle)
+    698     """A pprint that just redirects to the normal repr function."""
+    699     # Find newlines and replace them with p.break_()
+--> 700     output = repr(obj)
+    701     lines = output.splitlines()
+    702     with p.group():
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 4 produced Python Error:
+
+/usr/lib/python3.12/random.py in randint(self, a, b)
+    334         """
+    335 
+--> 336         return self.randrange(a, b+1)
+    337 
+    338 
+/usr/lib/python3.12/random.py in randrange(self, start, stop, step)
+    317             if width > 0:
+    318                 return istart + self._randbelow(width)
+--> 319             raise ValueError(f"empty range in randrange({start}, {stop})")
+    320 
+    321         # Non-unit step argument supplied.
+ValueError: empty range in randrange(10001, 10001)
+
+
+Attempt 4 produced Python Error:
+
+/usr/lib/python3.12/random.py in randint(self, a, b)
+    334         """
+    335 
+--> 336         return self.randrange(a, b+1)
+    337 
+    338 
+/usr/lib/python3.12/random.py in randrange(self, start, stop, step)
+    317             if width > 0:
+    318                 return istart + self._randbelow(width)
+--> 319             raise ValueError(f"empty range in randrange({start}, {stop})")
+    320 
+    321         # Non-unit step argument supplied.
+ValueError: empty range in randrange(5001, 5001)
+
+
+Attempt 4 produced Python Error:
+
+/usr/lib/python3.12/random.py in randint(self, a, b)
+    334         """
+    335 
+--> 336         return self.randrange(a, b+1)
+    337 
+    338 
+/usr/lib/python3.12/random.py in randrange(self, start, stop, step)
+    317             if width > 0:
+    318                 return istart + self._randbelow(width)
+--> 319             raise ValueError(f"empty range in randrange({start}, {stop})")
+    320 
+    321         # Non-unit step argument supplied.
+ValueError: empty range in randrange(5001, 5001)
+
+
+Attempt 4 produced Python Error:
+
+KeyError: slice(None, 10, None)
+
+
+Attempt 7 produced Python Error:
+
+ValueError: No c found

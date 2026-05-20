@@ -1,0 +1,52 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771537592.48
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+73     return chosen, (x_D, y_D), (x_c, y_c), (x_E, y_E), (x_X, y_X), sol1, sol2
+     74 
+---> 75 Y_candidate = compute_Y(7,8,6)
+     76 Y_candidate[0]
+Cell in compute_Y(a, b, c)
+     64     # Compare with D approx numeric
+     65     # convert to numeric to compare
+---> 66     D_numeric = (float(x_D.evalf()), float(y_D.evalf()))
+     67     chosen = None
+     68     for (xv,yv) in points:
+AttributeError: 'float' object has no attribute 'evalf'
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+20     return None
+     21 
+---> 22 per, tri = find_min_perimeter(80)
+     23 print(per, tri)
+TypeError: cannot unpack non-iterable NoneType object

@@ -1,0 +1,296 @@
+(86e8e5) Let $n \geq 6$ be a positive integer. We call a positive integer $n$-Norwegian if it has three distinct positive divisors whose sum is equal to $n$. Let $f(n)$ denote the smallest $n$-Norwegian positive integer. Let $M=3^{2025!}$ and for a non-negative integer $c$ define 
+\begin{equation*}
+    g(c)=\frac{1}{2025!}\left\lfloor \frac{2025! f(M+c)}{M}\right\rfloor.
+\end{equation*}
+We can write 
+\begin{equation*}
+    g(0)+g(4M)+g(1848374)+g(10162574)+g(265710644)+g(44636594)=\frac{p}{q}
+\end{equation*}
+where $p$ and $q$ are coprime positive integers. What is the remainder when $p+q$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771413341.04
+
+
+Attempt 1 produced Python Error:
+
+KeyError: slice(None, 20, None)
+
+
+Attempt 5 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+TypeError: 'int' object is not callable
+
+
+Attempt 2 produced Python Error:
+
+TypeError: 'int' object is not callable
+
+
+Attempt 2 produced Python Error:
+
+TypeError: 'int' object is not callable
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+OverflowError: integer division result too large for a float
+
+
+Attempt 8 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 8 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+NameError: name 'a' is not defined
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'mod_factorial'
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 8 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 8 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+6 6 4
+8 10 6
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+
+Attempt 1 produced Python Error:
+
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+c: 0
+TypeError: unsupported operand type(s) for ** or pow(): 'int', 'Zero', 'int'
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'Counter' is not defined
+
+
+Attempt 4 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'base_repr'
+
+
+Attempt 4 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'base_repr'
+
+
+Attempt 3 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'crt'
+
+
+Attempt 3 produced Python Error:
+
+9 0
+27 0
+TypeError: unsupported operand type(s) for ** or pow(): 'int', 'Zero', 'int'
+
+
+Attempt 3 produced Python Error:
+
+TypeError: unsupported operand type(s) for ** or pow(): 'int', 'Zero', 'int'
+
+
+Attempt 7 produced Python Error:
+
+TypeError: smallest_odd_prime_divisor_of_M_plus_t() missing 1 required positional argument: 'mods'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+NameError: name 's_vals_small' is not defined
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+NameError: name 'M' is not defined
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'cls8_200' is not defined
+
+
+Attempt 4 produced Python Error:
+
+NameError: name 'classify_up_to' is not defined
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.

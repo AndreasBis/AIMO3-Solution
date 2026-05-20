@@ -1,0 +1,68 @@
+(0e644e) Let $ABC$ be an acute-angled triangle with integer side lengths and $AB<AC$. Points $D$ and $E$ lie on segments $BC$ and $AC$, respectively, such that $AD=AE=AB$. Line $DE$ intersects $AB$ at $X$. Circles $BXD$ and $CED$ intersect for the second time at $Y \neq D$. Suppose that $Y$ lies on line $AD$. There is a unique such triangle with minimal perimeter. This triangle has side lengths $a=BC$, $b=CA$, and $c=AB$. Find the remainder when $abc$ is divided by $10^{5}$.
+
+Budget: 996.00 seconds | Deadline: 1771639039.74
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 3 produced Python Error:
+
+ValueError: too many values to unpack (expected 2)
+
+
+Attempt 4 produced Python Error:
+
+TypeError: find_min_perimeter.<locals>.circumcenter() missing 2 required positional arguments: 'p2' and 'p3'
+
+
+Attempt 7 produced Python Error:
+
+NameError: name 'something' is not defined
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+ValueError: isqrt() argument must be nonnegative
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+ValueError: too many values to unpack (expected 2)
+
+
+Attempt 1 produced Python Error:
+
+ValueError: empty range in randrange(21, 21)
+
+
+Attempt 2 produced Python Error:
+
+AttributeError: 'Point2D' object has no attribute 'as_real_imag'
+
+
+Attempt 7 produced Python Error:
+
+UnboundLocalError: cannot access local variable 'math' where it is not associated with a value

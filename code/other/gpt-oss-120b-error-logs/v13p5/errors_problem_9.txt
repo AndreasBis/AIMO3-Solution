@@ -1,0 +1,128 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771499947.29
+
+
+Attempt 6 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 4 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+
+Attempt 8 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npolycyclotomic'
+
+
+Attempt 1 produced Python Error:
+
+AttributeError: 'One' object has no attribute 'degree'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npolycyclotomic'
+
+
+Attempt 2 produced Python Error:
+
+NameError: name 'alpha_set' is not defined
+
+
+Attempt 3 produced Python Error:
+
+TypeError: 'One' object is not iterable
+
+
+Attempt 5 produced Python Error:
+
+AttributeError: module 'sympy' has no attribute 'npolycyclotomic'
+
+
+Attempt 3 produced Python Error:
+
+TypeError: Cannot convert symbols to int
+
+
+Attempt 4 produced Python Error:
+
+TypeError: Cannot convert symbols to int
+
+
+Attempt 4 produced Python Error:
+
+TypeError: Cannot convert symbols to int
+
+
+Attempt 5 produced Python Error:
+
+KeyError: floor(x**15/(x**6 - 2*x**5 + 3*x**4 - 3*x**3 + 3*x**2 - 2*x + 1) + 1/(x**6 - 2*x**5 + 3*x**4 - 3*x**3 + 3*x**2 - 2*x + 1))
+During handling of the above exception, another exception occurred:
+PolynomialError: floor(x**15/(x**6 - 2*x**5 + 3*x**4 - 3*x**3 + 3*x**2 - 2*x + 1) + 1/(x**6 - 2*x**5 + 3*x**4 - 3*x**3 + 3*x**2 - 2*x + 1)) contains an element of the set of generators.
+
+
+Attempt 4 produced Python Error:
+
+TypeError: Cannot convert symbols to int
+
+
+Attempt 3 produced Python Error:
+
+TypeError: Cannot convert symbols to int
+
+
+Attempt 3 produced Python Error:
+
+Error constructing beta for (1, -1, 1, 0, 0, 0, 0, 0, 0) x**2 - x + 1 1 0 3 Cannot convert symbols to int
+TypeError: Cannot convert symbols to int
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.

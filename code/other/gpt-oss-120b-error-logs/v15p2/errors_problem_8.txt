@@ -1,0 +1,56 @@
+(42d360) On a blackboard, Ken starts off by writing a positive integer $n$ and then applies the following move until he first reaches $1$. Given that the number on the board is $m$, he chooses a base $b$, where $2 \leq b \leq m$, and considers the unique base-$b$ representation of $m$,
+\begin{equation*}
+    m = \sum_{k = 0}^\infty a_k \cdot b^k
+\end{equation*}
+where $a_k$ are non-negative integers and $0 \leq a_k < b$ for each $k$. Ken then erases $m$ on the blackboard and replaces it with $\sum\limits_{k = 0}^\infty a_k$.
+
+Across all choices of $1 \leq n \leq 10^{10^5}$, the largest possible number of moves Ken could make is $M$. What is the remainder when $M$ is divided by $10^{5}$?
+
+Budget: 996.00 seconds | Deadline: 1771669286.40
+
+
+Attempt 8 produced Python Error:
+
+2 
+      3 f = lambda x: mp.log(x) + 1/x - 1
+----> 4 mp.findroot(f, 2.5)
+ValueError: Could not find root within given tolerance. (7.176262034707901035450626509638371336902006332501389794715881986060297e-29 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 5 produced Python Error:
+
+21 
+     22 data = g_brutal(200)
+---> 23 data[:10]
+KeyError: slice(None, 10, None)
+
+
+Attempt 3 produced Python Error:
+
+1 for i in range(2000, 5000):
+----> 2     if f_vals[i]==12:
+      3         print(i)
+      4         break
+IndexError: list index out of range
+
+
+Attempt 7 produced Python Error:
+
+1 import mpmath as mp
+      2 f = lambda b: mp.log(b) - 1 + 1/b
+----> 3 root = mp.findroot(f, 3)
+      4 root
+ValueError: Could not find root within given tolerance. (2.252505489146607617934700094544297693231768133900086614719201883916618e-32 > 1.854603075343710692865867630773819756683782389378895501226519529458791e-68)
+Try another starting point or tweak arguments.
+
+
+Attempt 3 produced Python Error:
+
+----> 1 print(f_vals[2048])
+IndexError: list index out of range
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.

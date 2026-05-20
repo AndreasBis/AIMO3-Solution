@@ -1,0 +1,456 @@
+(641659) Let $ABC$ be a triangle with $AB \neq AC$, circumcircle $\Omega$, and incircle $\omega$. Let the contact points of $\omega$ with $BC$, $CA$, and $AB$ be $D$, $E$, and $F$, respectively. Let the circumcircle of $AFE$ meet $\Omega$ at $K$ and let the reflection of $K$ in $EF$ be $K'$. Let $N$ denote the foot of the perpendicular from $D$ to $EF$. The circle tangent to line $BN$ and passing through $B$ and $K$ intersects $BC$ again at $T \neq B$. 
+    
+Let sequence $(F_n)_{n \geq 0}$ be defined by $F_0 = 0$, $F_1 = 1$ and for $n \geq 2$, $F_n = F_{n-1} + F_{n-2}$. Call $ABC$ $n$\emph{-tastic} if $BD = F_n$, $CD = F_{n+1}$, and $KNK'B$ is cyclic. Across all $n$-tastic triangles, let $a_n$ denote the maximum possible value of $\frac{CT \cdot NB}{BT \cdot NE}$. Let $\alpha$ denote the smallest real number such that for all sufficiently large $n$, $a_{2n} < \alpha$. Given that $\alpha = p + \sqrt{q}$ for rationals $p$ and $q$, what is the remainder when $\left\lfloor p^{q^p} \right\rfloor$ is divided by $99991$?
+
+Budget: 996.00 seconds | Deadline: 1771521405.37
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+    113 d_val = 5
+    114 r_val = 2
+--> 115 expr, cyclic = ratio_expression(a_val, d_val, r_val)
+    116 expr, cyclic
+Cell in ratio_expression(a, d, r)
+     91     # reflect K across line EF
+     92     lineEF = sp.Line(E,F)
+---> 93     Kprime = reflection_across_line(K, lineEF)
+     94     # foot N from D onto EF
+     95     N = foot_of_perpendicular(D, lineEF)
+Cell in reflection_across_line(P, line)
+     48 def reflection_across_line(P, line):
+     49     # reflect point P across line (sympy Line)
+---> 50     return P.mirror(line)
+     51 
+     52 def foot_of_perpendicular(P, line):
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 circle_AFE_eq = sp.expand(circle_AFE.equation())
+      2 circle_ABC_eq = sp.expand(circle_ABC.equation())
+      3 circle_AFE_eq, circle_ABC_eq
+NameError: name 'circle_AFE' is not defined
+
+
+Attempt 8 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 L_EF = sp.Line(E,F)
+----> 2 K_ref = K.mirror(L_EF) # reflection
+      3 sp.N(K_ref)
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 circ = circ_KNKprime
+      2 center = circ.center
+      3 radius = circ.radius
+      4 float(center.distance(B) - radius)
+NameError: name 'circ_KNKprime' is not defined
+
+
+Attempt 5 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+     67 
+     68 # Test for a=3, x0=1, r=0.5
+---> 69 vals = compute_values(3, 1, sp.Rational(1,2))
+     70 vals['cyclic'], vals['ratio_n']
+Cell in compute_values(a_val, x0_val, r_val)
+     30     circ_BKN = sp.Circle(B, K, N)
+     31     # check if K_ref lies on this circle
+---> 32     cyclic = sp.simplify(circ_BKN.distance(K_ref)) == 0  # symbolic equality might hold
+     33     # compute center O of circle tangent at B to line BN and passing through K
+     34     line_BN = sp.Line(B, N)
+AttributeError: 'Circle' object has no attribute 'distance'
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+    150 # Test for t = φ
+    151 phi = (1+math.sqrt(5))/2
+--> 152 r_solution = solve_r_for_t(phi)
+    153 r_solution
+Cell in solve_r_for_t(t, initial_guess)
+    111         return diff
+    112     # Evaluate f at lo and hi to ensure sign change.
+--> 113     f_lo = f_of_r(lo)
+    114     f_hi = f_of_r(hi)
+    115     # print(f_lo, f_hi)
+Cell in f_of_r(r)
+     91         # circumcircles O1 (ABC) and O2 (AFE)
+     92         O1, R1 = circle_center_radius(A, B, C_pt)
+---> 93         O2, R2 = circle_center_radius(A, F, E)
+     94         # intersections of circles O1,R1 and O2,R2
+     95         inters = circle_circle_intersections(O1, R1, O2, R2)
+Cell in circle_center_radius(P1, P2, P3)
+     19     d = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
+     20     if abs(d) < 1e-12:
+---> 21         raise ValueError("Collinear points")
+     22     ux = ((np.dot(A, A))*(B[1]-C[1]) + (np.dot(B, B))*(C[1]-A[1]) + (np.dot(C, C))*(A[1]-B[1]))/d
+     23     uy = ((np.dot(A, A))*(C[0]-B[0]) + (np.dot(B, B))*(A[0]-C[0]) + (np.dot(C, C))*(B[0]-A[0]))/d
+ValueError: Collinear points
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+     34 phi = (1+math.sqrt(5))/2
+     35 for r in [1e-5,1e-4,0.01,0.05,0.1,0.2]:
+---> 36     print(r, diff_cyclic(r, phi))
+Cell in diff_cyclic(r, t)
+     16     # circles
+     17     O1, R1 = circle_center_radius(A,B,C_pt)
+---> 18     O2, R2 = circle_center_radius(A,F,E)
+     19     inters = circle_circle_intersections(O1,R1,O2,R2)
+     20     # pick K not A
+Cell in circle_center_radius(P1, P2, P3)
+     19     d = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
+     20     if abs(d) < 1e-12:
+---> 21         raise ValueError("Collinear points")
+     22     ux = ((np.dot(A, A))*(B[1]-C[1]) + (np.dot(B, B))*(C[1]-A[1]) + (np.dot(C, C))*(A[1]-B[1]))/d
+     23     uy = ((np.dot(A, A))*(C[0]-B[0]) + (np.dot(B, B))*(A[0]-C[0]) + (np.dot(C, C))*(B[0]-A[0]))/d
+ValueError: Collinear points
+
+
+Attempt 3 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+    164 
+    165 beta = float(beta.evalf())
+--> 166 r_est = find_r_for_beta(beta)
+    167 r_est
+Cell in find_r_for_beta(beta)
+    141     r_high = min(beta, 1-beta)-1e-6
+    142     f_low = f(r_low)
+--> 143     f_high = f(r_high)
+    144     # Ensure sign change
+    145     # let's sample values
+Cell in f(r)
+    129         Kprime = K.reflect(lineEF)
+    130         # N foot from D onto EF
+--> 131         N = D.projection(lineEF)
+    132         # circle through B,N,K
+    133         circBNK = sp.Circle(B, N, K)
+AttributeError: 'Point2D' object has no attribute 'projection'
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 line = sp.Line(sp.Point(0,0), sp.Point(1,1))
+      2 pt = sp.Point(1,0)
+----> 3 pt.projection(line)
+AttributeError: 'Point2D' object has no attribute 'projection'
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+     45     return (lo+hi)/2
+     46 
+---> 47 root_r = find_root_r(phi)
+     48 root_r
+Cell in find_root_r(t)
+      3     lo = 1e-3
+      4     hi = min(0.999, t-1e-6)  # ensure hi less than t
+----> 5     f_lo = diff_cyclic(lo, t)
+      6     f_hi = diff_cyclic(hi, t)
+      7     # ensure sign change; if not, adjust boundaries
+Cell in diff_cyclic(r, t)
+     16     # circles
+     17     O1, R1 = circle_center_radius(A,B,C_pt)
+---> 18     O2, R2 = circle_center_radius(A,F,E)
+     19     inters = circle_circle_intersections(O1,R1,O2,R2)
+     20     # pick K not A
+Cell in circle_center_radius(P1, P2, P3)
+     19     d = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
+     20     if abs(d) < 1e-12:
+---> 21         raise ValueError("Collinear points")
+     22     ux = ((np.dot(A, A))*(B[1]-C[1]) + (np.dot(B, B))*(C[1]-A[1]) + (np.dot(C, C))*(A[1]-B[1]))/d
+     23     uy = ((np.dot(A, A))*(C[0]-B[0]) + (np.dot(B, B))*(A[0]-C[0]) + (np.dot(C, C))*(B[0]-A[0]))/d
+ValueError: Collinear points
+
+
+Attempt 4 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 K_pt = sp.Point(xK_expr, yK_expr)
+----> 2 K_prime_pt = K_pt.mirror(line_EF)  # reflection across line
+      3 K_prime_pt
+AttributeError: 'Point2D' object has no attribute 'mirror'
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+     76 
+     77 # test for some r values
+---> 78 beta_val = float(beta.evalf())
+     79 for r_guess in [0.05, 0.1, 0.15, 0.2, 0.25]:
+     80     try:
+AttributeError: 'float' object has no attribute 'evalf'
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 1 produced Python Error:
+
+Cell in <cell line: 0>()
+     71     return ratio
+     72 
+---> 73 ratio_val = compute_ratio(phi, root_r)
+     74 ratio_val
+Cell in compute_ratio(t, r)
+     49     # circle eq (x-u)^2 + (y-v)^2 = R^2 ; set y=0 solve for x
+     50     # (x-u)^2 + v^2 = R^2 => (x-u)^2 = R^2 - v^2
+---> 51     if R_val**2 - v**2 < 0:
+     52         # maybe due to rounding, treat as zero
+     53         rad = 0.0
+TypeError: cannot determine truth value of Relational
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+     19     return (low+high)/2
+     20 
+---> 21 r_root = find_root_beta(beta_val)
+     22 r_root
+Cell in find_root_beta(beta)
+      2     low = 1e-6
+      3     high = min(beta, 1-beta)-1e-6
+----> 4     f_low = compute_ratio_beta_r(beta, low)[1]
+      5     f_high = compute_ratio_beta_r(beta, high)[1]
+      6     # Ensure sign diff
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 vals = compute_values(3, 1, sp.nsimplify(0.7559289460184545, [sp.sqrt(5)]))
+----> 2 vals['ratio_n']
+KeyError: 'ratio_n'
+
+
+Attempt 6 produced Python Error:
+
+Cell in <cell line: 0>()
+     18     return (low+high)/2
+     19 
+---> 20 r_root = find_root_beta(beta_val)
+     21 r_root
+Cell in find_root_beta(beta)
+      2     low = 1e-3
+      3     high = min(beta, 1-beta)-1e-4
+----> 4     f_low = compute_ratio_beta_r(beta, low)[1]
+      5     f_high = compute_ratio_beta_r(beta, high)[1]
+      6     print("low diff", f_low, "high diff", f_high)
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+      5 
+      6 for a,g in [(1.0,0.2),(2.0,0.5),(0.8,0.4)]:
+----> 7     print(a,g, BD_over_tan(a,g))
+Cell in BD_over_tan(alpha, gamma)
+      1 def BD_over_tan(alpha,gamma):
+----> 2     BD = BD_numeric(alpha,gamma)
+      3     u = (alpha-gamma)/2
+      4     return BD/abs(math.tan(u))
+      5 
+NameError: name 'BD_numeric' is not defined
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 7 produced Python Error:
+
+Cell in <cell line: 0>()
+     22     return (low+high)/2
+     23 
+---> 24 root_small = find_root_bracket(5,2,0.001,0.1)
+     25 root_small
+Cell in find_root_bracket(a_val, x0_val, low, high)
+      1 def find_root_bracket(a_val,x0_val,low,high):
+----> 2     f_low = float(cyclic_condition_value(a_val,x0_val,low).evalf())
+      3     f_high = float(cyclic_condition_value(a_val,x0_val,high).evalf())
+      4     # ensure opposite signs
+      5     if f_low == 0:
+Cell in cyclic_condition_value(a_val, x0_val, r_val)
+     19     line_EF = sp.Line(E, F)
+     20     N = line_EF.projection(D)
+---> 21     K_ref = K.reflect(line_EF)
+     22     # compute determinant for cyclic condition
+     23     # matrix of points (x,y,x^2+y^2,1)
+AttributeError: 'NoneType' object has no attribute 'reflect'
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 2 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 x = fib[14]; y = fib[15]; s = roots[0]  # large ratio root
+      2 B,C,F,E,r = points_given(x,y,s)
+----> 3 data = compute_ratio(x,y,s)[1]
+      4 T = data['T']
+      5 print("B x:", B[0], "C x:", C[0], "T x:", T[0])
+TypeError: 'NoneType' object is not subscriptable
+
+
+Attempt 3 produced Python Error:
+
+Cell in <cell line: 0>()
+     49 p_test = 0.382
+     50 r_val = find_r_for_p(p_test, guess=0.2)
+---> 51 ratio, info = compute_ratio(p_test, r_val)
+     52 print("r:", r_val)
+     53 print("ratio:", ratio)
+Cell in compute_ratio(p, r)
+     35     # Compute lengths using absolute distances
+     36     BT = abs(x_T - B[0])
+---> 37     CT = abs(x_T - C[0])
+     38     NB = math.hypot(N[0] - B[0], N[1] - B[1])
+     39     NE = math.hypot(N[0] - geom['E'][0], N[1] - geom['E'][1])
+NameError: name 'C' is not defined
+
+
+Attempt 2 produced Python Error:
+
+Cell in <cell line: 0>()
+----> 1 ratio, data = compute_ratio(x,y,s)
+      2 print("ratio:", ratio)
+      3 print(data['T'])
+TypeError: cannot unpack non-iterable NoneType object
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 # Convert to rational expression
+----> 2 det_num, det_den = sp.fraction(det_expr)
+      3 det_num_s = sp.simplify(sp.factor(det_num))
+      4 det_den_s = sp.simplify(det_den)
+      5 det_num_s
+NameError: name 'det_expr' is not defined
+
+
+Attempt 7 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 4 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.
+
+
+Attempt 5 produced Python Error:
+
+Cell in <cell line: 0>()
+      1 alpha,beta,gamma = 2.0, 4.0, 0.5
+----> 2 res = compute_geometry(alpha,beta,gamma)
+      3 print("ratio:", res['ratio'])
+      4 print("cyclic:", res['cyclic'])
+      5 print("BD/CD:", res['BDCD'])
+NameError: name 'compute_geometry' is not defined
+
+
+Attempt 6 produced Python Error:
+
+Execution timed out after 6 seconds.

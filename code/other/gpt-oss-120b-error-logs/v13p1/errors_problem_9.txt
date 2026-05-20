@@ -1,0 +1,288 @@
+(dd7f5e) Let $\mathcal{F}$ be the set of functions $\alpha \colon \mathbb{Z}\to \mathbb{Z}$ for which there are only finitely many $n \in \mathbb{Z}$ such that $\alpha(n) \neq 0$. 
+
+For two functions $\alpha$ and $\beta$ in $\mathcal{F}$, define their product $\alpha\star\beta$ to be $\sum\limits_{n\in\mathbb{Z}} \alpha(n)\cdot \beta(n)$. Also, for $n\in\mathbb{Z}$, define a shift operator $S_n \colon \mathcal{F}\to \mathcal{F}$ by $S_n(\alpha)(t)=\alpha(t+n)$ for all $t \in \mathbb{Z}$.
+
+A function $\alpha \in \mathcal{F}$ is called \emph{shifty} if 
+\begin{itemize}
+    \item $\alpha(m)=0$ for all integers $m<0$ and $m>8$ and
+    \item There exists $\beta \in \mathcal{F}$ and integers $k \neq l$ such that for all $n \in \mathbb{Z}$
+    \begin{equation*}
+        S_n(\alpha)\star\beta =
+        \begin{cases}
+            1 & n \in \{k,l\} \\
+            0 & n \not \in \{k,l\}
+        \end{cases}
+        \; .
+    \end{equation*}
+\end{itemize}
+How many shifty functions are there in $\mathcal{F}$?
+
+Budget: 996.00 seconds | Deadline: 1771344516.69
+
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_778/3794192236.py in <cell line: 0>()
+      5     # polys=True returns sympy Poly object
+      6     # ensure primitive integer coefficients
+----> 7     cyclo[n] = sp.expand(cyclo[n])
+      8 cyclo
+/usr/local/lib/python3.12/dist-packages/sympy/core/function.py in expand(e, deep, modulus, power_base, power_exp, mul, log, multinomial, basic, **hints)
+   2813     hints['multinomial'] = multinomial
+   2814     hints['basic'] = basic
+-> 2815     return sympify(e).expand(deep=deep, modulus=modulus, **hints)
+   2816 
+   2817 # This is a special application of two hints
+AttributeError: 'Poly' object has no attribute 'expand'
+
+Attempt 5 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_768/1474110188.py in <cell line: 0>()
+      7     d=deg_phi_2r(r)
+      8     if d<=8:
+----> 9         cands.append((r,d,sp.npoly(sp.nroots(sp.CyclotomicPolynomial(2*r)),20)))
+     10 cands[:20]
+AttributeError: module 'sympy' has no attribute 'npoly'
+
+Attempt 3 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_777/1120956222.py in <cell line: 0>()
+     44 bad = []
+     45 for expr in alphas:
+---> 46     if not verify_alpha(expr):
+     47         all_good = False
+     48         bad.append(expr)
+/tmp/ipykernel_777/1120956222.py in verify_alpha(poly_expr)
+     20     min_exp = min(exp for exp in terms)
+     21     # extract D = poly / x^min_exp
+---> 22     D = sp.Poly(x**(-min_exp)*poly.as_expr(), x, domain='ZZ')
+     23     # D should have constant term ±1
+     24     if D.degree() == 0:
+TypeError: bad operand type for unary -: 'tuple'
+
+Attempt 4 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_744/2438498224.py in <cell line: 0>()
+      5 for m,deg in pairs:
+      6     n=2*m
+----> 7     phi_polys[m] = cyclotomic_poly(n)
+      8 phi_polys
+/tmp/ipykernel_744/2438498224.py in cyclotomic_poly(n)
+      1 x=sp.Symbol('x')
+      2 def cyclotomic_poly(n):
+----> 3     return sp.npolytools.cyclotomic_poly(n, x, polys=True)
+      4 phi_polys = {}
+      5 for m,deg in pairs:
+AttributeError: module 'sympy' has no attribute 'npolytools'
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 6 produced Python Error:
+
+[] 0 Poly(1, z, domain='ZZ')
+[1] 0 Poly(1, z, domain='ZZ')
+---------------------------------------------------------------------------AssertionError                            Traceback (most recent call last)/tmp/ipykernel_765/1981601949.py in <cell line: 0>()
+     23 # test for some subsets
+     24 for subset in [[], [1], [2,3], [4,5,6]]:
+---> 25     H = compute_H(subset)
+     26     print(subset, H.degree(), H)
+/tmp/ipykernel_765/1981601949.py in compute_H(subset)
+     18     # divide
+     19     quotient, remainder = poly_one_plus.div(D)
+---> 20     assert remainder.is_zero
+     21     return quotient
+     22 
+AssertionError: 
+
+Attempt 8 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_807/2959327936.py in <cell line: 0>()
+     59 
+     60 alpha={0:2,1:-1}
+---> 61 print(exists_beta(alpha))
+/tmp/ipykernel_807/2959327936.py in exists_beta(alpha, d_range)
+     29         # Solve integer linear system via diophantine: find any integer solution
+     30         # Use sp.linsolve over integers?
+---> 31         sol_set = sp.linsolve((A,b), varlist)
+     32         if not sol_set:
+     33             continue
+/usr/local/lib/python3.12/dist-packages/sympy/solvers/solveset.py in linsolve(system, *symbols)
+   3147         eqs.append(Add(*terms))
+   3148 
+-> 3149     eqs, ring = sympy_eqs_to_ring(eqs, symbols)
+   3150     sol = solve_lin_sys(eqs, ring, _raw=False)
+   3151     if sol is None:
+/usr/local/lib/python3.12/dist-packages/sympy/polys/solvers.py in sympy_eqs_to_ring(eqs, symbols)
+    178     """
+    179     try:
+--> 180         K, eq
+... [Truncated 1036 characters] ...
+yoptions.py in preprocess_options(args)
+    149 
+    150                 if value is not None:
+--> 151                     self[option] = cls.preprocess(value)
+    152 
+    153         preprocess_options(args)
+/usr/local/lib/python3.12/dist-packages/sympy/polys/polyoptions.py in preprocess(cls, gens)
+    287         elif has_dups(gens):
+    288             raise GeneratorsError("duplicated generators: %s" % str(gens))
+--> 289         elif any(gen.is_commutative is False for gen in gens):
+    290             raise GeneratorsError("non-commutative generators: %s" % str(gens))
+    291 
+/usr/local/lib/python3.12/dist-packages/sympy/polys/polyoptions.py in <genexpr>(.0)
+    287         elif has_dups(gens):
+    288             raise GeneratorsError("duplicated generators: %s" % str(gens))
+--> 289         elif any(gen.is_commutative is False for gen in gens):
+    290             raise GeneratorsError("non-commutative generators: %s" % str(gens))
+    291 
+AttributeError: 'int' object has no attribute 'is_commutative'
+
+Attempt 1 produced Python Error:
+
+x + 1 1
+x**2 - x + 1 1
+x**4 - x**3 + x**2 - x + 1 1
+x**6 - x**5 + x**4 - x**3 + x**2 - x + 1 1
+x**6 - x**3 + 1 1
+x**8 + x**7 - x**5 - x**4 - x**3 + x + 1 1
+x**3 + 1 1
+x**5 + 1 1
+x**7 + 1 1
+x**7 + x**6 - x**4 - x**3 + x + 1 1
+x**6 - 2*x**5 + 3*x**4 - 3*x**3 + 3*x**2 - 2*x + 1 1
+x**8 - 2*x**7 + 3*x**6 - 3*x**5 + 3*x**4 - 3*x**3 + 3*x**2 - 2*x + 1 1
+x**8 - x**7 + x**6 - x**5 + x**4 - x**3 + x**2 - x + 1 1
+x**7 - x**6 + x**5 + x**2 - x + 1 1
+x**2 + 1 1
+x**4 - x**2 + 1 1
+x**8 - x**6 + x**4 - x**2 + 1 1
+x**6 + 1 1
+x**4 + 1 1
+x**8 - x**4 + 1 1
+x**8 + 1 1
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_778/1951605665.py in <cell line: 0>()
+      1 # verify constant term for each polynomial in valid_polys (excluding sign)
+      2 for p in valid_polys:
+----> 3     ct = int(p.subs(x,0))
+      4     print(p, ct)
+AttributeError: 'int' object has no attribute 'subs'
+
+Attempt 2 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 8 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_807/2473252828.py in <cell line: 0>()
+     63 cnt=0
+     64 for alpha in alphas:
+---> 65     if shifty_exists_alpha(alpha):
+     66         cnt+=1
+     67 cnt
+/tmp/ipykernel_807/2473252828.py in shifty_exists_alpha(alpha)
+     46         bvec=sp.Matrix(rhs)
+     47         # Check integer solution
+---> 48         if has_integer_solution(A,bvec):
+     49             return True
+     50     return False
+/tmp/ipykernel_807/2473252828.py in has_integer_solution(A, b)
+      7     # Equation solvable iff each non-zero diagonal d_i divides corresponding entry of U^{-1} b.
+      8     # Implementation via sympy's smith_normal_form returns (U,D,V).
+----> 9     U, D, V = sp.matrices.normalforms.smith_normal_form(A, domain=sp.ZZ, method='determinant')
+     10     # U and V are unimodular integer matrices (det +-1)
+     11     # Compute transformed RHS: b' = U.inv()*b (since U is unimodular, inverse integer)
+AttributeError: module 'sympy.matrices' has no attribute 'normalforms'
+
+Attempt 1 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_778/3053257409.py in <cell line: 0>()
+----> 1 sorted(valid_monic, key=lambda p: (sp.degree(p), p))
+/usr/local/lib/python3.12/dist-packages/sympy/core/relational.py in __bool__(self)
+    514 
+    515     def __bool__(self):
+--> 516         raise TypeError("cannot determine truth value of Relational")
+    517 
+    518     def _eval_as_set(self):
+TypeError: cannot determine truth value of Relational
+
+Attempt 8 produced Python Error:
+
+---------------------------------------------------------------------------ValueError                                Traceback (most recent call last)/tmp/ipykernel_807/2771837657.py in <cell line: 0>()
+     50 cnt=0
+     51 for alpha in alphas:
+---> 52     if shifty_exists_alpha(alpha):
+     53         cnt+=1
+     54 cnt
+/tmp/ipykernel_807/2771837657.py in shifty_exists_alpha(alpha)
+     42         A=sp.Matrix(rows)
+     43         bvec=sp.Matrix(rhs)
+---> 44         if has_integer_solution(A,bvec):
+     45             return True
+     46     return False
+/tmp/ipykernel_807/2771837657.py in has_integer_solution(A, b)
+      1 def has_integer_solution(A,b):
+----> 2     U, D, V = smith_normal_form(A, domain=sp.ZZ)
+      3     # compute b' = U.inv() * b
+      4     # Since U is unimodular integer matrix, its inverse is also integer.
+      5     b_prime = U.inv()*b
+ValueError: too many values to unpack (expected 3)
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_789/1964113693.py in <cell line: 0>()
+      1 polys = [sp.Poly(p, z) for p in polys_set]
+      2 # sort by degree then maybe expression
+----> 3 polys_sorted = sorted(polys, key=lambda p: (p.degree(), p.as_expr()))
+      4 for p in polys_sorted:
+      5     print(p.degree(), p.as_expr())
+/usr/local/lib/python3.12/dist-packages/sympy/core/relational.py in __bool__(self)
+    514 
+    515     def __bool__(self):
+--> 516         raise TypeError("cannot determine truth value of Relational")
+    517 
+    518     def _eval_as_set(self):
+TypeError: cannot determine truth value of Relational
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 2 produced Python Error:
+
+---------------------------------------------------------------------------AttributeError                            Traceback (most recent call last)/tmp/ipykernel_789/1402684107.py in <cell line: 0>()
+     14         # shift
+     15         for sign in [1, -1]:
+---> 16             shifted = sp.expand(sign * z**e * p)
+     17             # convert to tuple of coefficients length up to 9
+     18             coeffs = [0]*9
+/usr/local/lib/python3.12/dist-packages/sympy/core/function.py in expand(e, deep, modulus, power_base, power_exp, mul, log, multinomial, basic, **hints)
+   2813     hints['multinomial'] = multinomial
+   2814     hints['basic'] = basic
+-> 2815     return sympify(e).expand(deep=deep, modulus=modulus, **hints)
+   2816 
+   2817 # This is a special application of two hints
+AttributeError: 'Poly' object has no attribute 'expand'
+
+Attempt 8 produced Python Error:
+
+---------------------------------------------------------------------------TypeError                                 Traceback (most recent call last)/tmp/ipykernel_807/2448048670.py in <cell line: 0>()
+----> 1 smith_normal_form(sp.Matrix([[2,4],[6,8]]), domain=sp.ZZ, calc_transform=True)
+TypeError: smith_normal_form() got an unexpected keyword argument 'calc_transform'
+
+Attempt 5 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
+
+Attempt 8 produced Python Error:
+
+[ERROR] Execution timed out after 12 seconds
